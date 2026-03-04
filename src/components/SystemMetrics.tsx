@@ -90,7 +90,7 @@ const AnimatedCounter = ({ metric, index }: { metric: Metric; index: number }) =
 
 const SystemMetrics = () => {
   return (
-    <section className="py-32 bg-tactical-black">
+    <section id="metrics" className="py-32 bg-tactical-black">
       <div className="container mx-auto px-6">
         <motion.div
           className="mb-16 text-center"

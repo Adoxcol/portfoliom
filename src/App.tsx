@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CustomCursor from './components/CustomCursor';
 import TacticalBackground from './components/TacticalBackground';
 import LoadingScreen from './components/LoadingScreen';
+import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ProjectArchive from './components/ProjectArchive';
@@ -37,6 +38,9 @@ function App() {
 
       {/* Custom Cursor */}
       {showCursor && <CustomCursor />}
+
+      {/* Navigation */}
+      {!isLoading && <Navigation />}
 
       {/* Tactical Background */}
       <TacticalBackground />

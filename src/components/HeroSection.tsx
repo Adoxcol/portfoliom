@@ -9,8 +9,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
+      <div className="container mx-auto px-6 grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-12 xl:gap-20 items-center">
         {/* Left side - Name and Title */}
         <motion.div
           className="space-y-6 z-10"
@@ -20,7 +20,7 @@ const HeroSection = () => {
         >
           <div className="space-y-2 md:space-y-4">
             <motion.h1 
-              className="tactical-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-soft-white leading-tight"
+              className="tactical-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-soft-white leading-none tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -29,7 +29,7 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.h2 
-              className="tactical-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neon-lime leading-tight"
+              className="tactical-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-neon-lime leading-none tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
