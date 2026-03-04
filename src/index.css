@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tactical Interface Base Styles */
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Tactical Utilities */
+@layer utilities {
+  /* Tactical border with no rounded corners */
+  .tactical-border {
+    border: 1px solid #333;
+    border-radius: 0;
+  }
+  
+  /* Neon glow effects */
+  .neon-glow-lime {
+    box-shadow: 0 0 5px #B4F000, 0 0 10px #B4F000, 0 0 15px #B4F000;
+  }
+  
+  .neon-glow-magenta {
+    box-shadow: 0 0 5px #FF2E88, 0 0 10px #FF2E88, 0 0 15px #FF2E88;
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 5px #00F0FF, 0 0 10px #00F0FF, 0 0 15px #00F0FF;
+  }
+  
+  /* Scanline effect */
+  .scanline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 50%,
+      rgba(0, 240, 255, 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Noise texture overlay */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* Tactical text styles */
+  .tactical-heading {
+    font-family: 'Space Grotesk', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  
+  .tactical-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+  }
+  
+  .tactical-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  
+  /* Custom cursor hide */
+  .cursor-hidden * {
+    cursor: none !important;
+  }
+}
+
+/* Global styles */
+body {
+  background-color: #0A0A0A;
+  color: #EAEAEA;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Selection styles */
+::selection {
+  background-color: #B4F000;
+  color: #0A0A0A;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #00F0FF;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Reduce font sizes for mobile */
+  .tactical-heading {
+    font-size: 2.5rem !important;
+  }
+  
+  .tactical-mono {
+    font-size: 0.875rem;
+  }
+  
+  /* Reduce section padding */
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  
+  /* Hide some background elements on mobile */
+  .tactical-background .corner-coordinates,
+  .tactical-background .security-level {
+    display: none;
+  }
+  
+  /* Reduce grid complexity */
+  .grid-cols-1 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Simplify hover effects on mobile */
+  .group:hover .group-hover\:opacity-80 {
+    opacity: 0.6 !important;
+  }
+  
+  /* Reduce animation complexity */
+  .motion-reduce\:opacity-0 {
+    opacity: 0;
+  }
+  
+  /* Terminal adjustments */
+  .tactical-terminal {
+    font-size: 0.75rem;
+  }
+  
+  /* Custom cursor hide on mobile */
+  .cursor-hidden * {
+    cursor: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .tactical-background,
+  .custom-cursor {
+    display: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .tactical-border {
+    border-width: 2px;
+  }
+  
+  .neon-glow-lime,
+  .neon-glow-magenta,
+  .neon-glow-cyan {
+    box-shadow: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom animations for tactical feel */
+@keyframes tactical-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes tactical-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes tactical-glow {
+  0% { box-shadow: 0 0 5px currentColor; }
+  100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+.tactical-flicker {
+  animation: tactical-flicker 2s infinite;
+}
+
+.tactical-scan {
+  animation: tactical-scan 8s linear infinite;
+}
+
+.tactical-glow {
+  animation: tactical-glow 2s ease-in-out infinite alternate;
+}
