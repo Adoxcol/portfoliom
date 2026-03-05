@@ -19,9 +19,9 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    name: 'LLM Knowledge Retrieval System',
-    category: 'AI',
-    techStack: ['Python', 'OpenAI', 'Pinecone', 'FastAPI'],
+    name: 'Goverment Hospital Website',
+    category: 'FULL-STACK',
+    techStack: ['Javascript', 'React', 'Node.js', 'Express', 'PayloadCMS'],
     status: 'DEPLOYED',
     description: 'Advanced RAG system for enterprise knowledge management',
     longDescription: 'A scalable Retrieval-Augmented Generation (RAG) system designed to process and query vast amounts of enterprise documentation. Leveraging OpenAI\'s embeddings and Pinecone vector database, it delivers context-aware answers with high accuracy.',
@@ -31,15 +31,15 @@ const projects: Project[] = [
       'Real-time document indexing pipeline',
       'Role-based access control for knowledge bases'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/00F0FF?text=LLM+SYSTEM',
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://demo.com'
+    imageUrl: '/images/gov.png',
+    githubUrl: 'https://github.com/BinduLogic/government-hospital-website',
+    liveUrl: 'https://nicvd-website.bgdtup.easypanel.host/en'
   },
   {
     id: 2,
-    name: 'AWS CI/CD Deployment Engine',
-    category: 'DEVOPS',
-    techStack: ['AWS', 'Terraform', 'Jenkins', 'Docker'],
+    name: 'DHI E-Learning Platform',
+    category: 'FULL-STACK',
+    techStack: ['AWS', 'Prisma', 'Node.js', 'Express', 'PostgreSQL'],
     status: 'DEPLOYED',
     description: 'Automated deployment pipeline for microservices',
     longDescription: 'A fully automated infrastructure-as-code solution for deploying microservices to AWS ECS. It handles build, test, and deployment phases with zero-downtime updates using Blue/Green deployment strategies.',
@@ -49,15 +49,15 @@ const projects: Project[] = [
       'Blue/Green deployment strategy',
       'Integrated security scanning and compliance checks'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/B4F000?text=CI/CD+ENGINE',
-    githubUrl: 'https://github.com'
+    imageUrl: '/images/dhi.png',
+    githubUrl: 'https://github.com/BinduLogic/dhi-e-learning'
   },
   {
     id: 3,
-    name: 'Real-time Log Analyzer',
+    name: 'DegreePlan',
     category: 'FULL-STACK',
-    techStack: ['Node.js', 'Elasticsearch', 'React', 'WebSocket'],
-    status: 'EXPERIMENTAL',
+    techStack: ['Node.js', 'Next.js', 'React', 'WebSocket','Supabase'],
+    status: 'DEPLOYED',
     description: 'Real-time log processing and visualization system',
     longDescription: 'A high-throughput log analysis platform that ingests, processes, and visualizes system logs in real-time. Built with the ELK stack and a React frontend, it provides instant insights into system health and anomalies.',
     features: [
@@ -66,16 +66,16 @@ const projects: Project[] = [
       'Anomaly detection alerts',
       'High-performance log ingestion pipeline'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/FF2E88?text=LOG+ANALYZER',
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://logs.demo.com'
+    imageUrl: '/images/degree.png',
+    githubUrl: 'https://github.com/Adoxcol/UniPlan_Final_1',
+    liveUrl: 'https://uni-plan-final-1.vercel.app/'
   },
   {
     id: 4,
-    name: 'Kubernetes Monitoring Dashboard',
-    category: 'DEVOPS',
-    techStack: ['Kubernetes', 'Prometheus', 'Grafana', 'Go'],
-    status: 'DEPLOYED',
+    name: 'Visual Novel Game',
+    category: 'FULL-STACK',
+    techStack: ['React', 'JavaScript', 'HTML', 'TailwindCSS'],
+    status: 'EXPERIMENTAL',
     description: 'Comprehensive K8s cluster monitoring solution',
     longDescription: 'A centralized observability platform for Kubernetes clusters, integrating Prometheus for metrics collection and Grafana for visualization. It includes custom exporters written in Go for specific application metrics.',
     features: [
@@ -84,14 +84,15 @@ const projects: Project[] = [
       'AlertManager integration for critical incidents',
       'Resource usage optimization recommendations'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/00F0FF?text=K8S+DASHBOARD',
-    githubUrl: 'https://github.com'
+    imageUrl: '/images/novel.png',
+    githubUrl: 'https://github.com/Adoxcol/flowervisualnovel',
+    liveUrl: 'https://adoxcol.github.io/flowervisualnovel/'
   },
   {
     id: 5,
-    name: 'AI Resume Analyzer',
+    name: 'Mental Wellness Companion',
     category: 'AI',
-    techStack: ['Python', 'spaCy', 'BERT', 'FastAPI'],
+    techStack: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
     status: 'ARCHIVED',
     description: 'NLP-powered resume screening and matching system',
     longDescription: 'An intelligent recruitment tool that uses Natural Language Processing (NLP) to parse resumes and match them against job descriptions. It utilizes BERT models for semantic understanding of candidate skills and experiences.',
@@ -101,12 +102,12 @@ const projects: Project[] = [
       'Semantic matching score calculation',
       'Bias detection and mitigation algorithms'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/B4F000?text=AI+ANALYZER',
-    githubUrl: 'https://github.com'
+    imageUrl: '/images/wellness.png',
+    githubUrl: 'https://github.com/Adoxcol/mentalwellness'
   },
   {
     id: 6,
-    name: 'Distributed Task Queue System',
+    name: 'Fabric Analyzer',
     category: 'BACKEND',
     techStack: ['C#', 'RabbitMQ', 'Redis', 'PostgreSQL'],
     status: 'DEPLOYED',
