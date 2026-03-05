@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 import { 
   Home, 
   User, 
@@ -22,19 +22,18 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const { scrollYProgress } = useScroll();
+
+  // Create smooth mask for center-out expansion
+  // We use a clip-path inset to reveal the border from the center outwards
+  const insetPercentage = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
+  const clipPath = useMotionTemplate`inset(0% ${insetPercentage} 0% ${insetPercentage} round 9999px)`;
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
-      // Calculate scroll progress
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scroll = totalScroll / windowHeight;
-      setScrollProgress(scroll);
-
       // Show nav on scroll
       if (window.scrollY > 100) {
         setIsVisible(true);
@@ -112,40 +111,13 @@ const Navigation = () => {
           {/* Progress Border */}
           <div className="absolute inset-0 rounded-full pointer-events-none">
             {/* Track */}
-            <svg className="absolute inset-0 w-full h-full overflow-visible">
-              <rect
-                x="1"
-                y="1"
-                width="calc(100% - 2px)"
-                height="calc(100% - 2px)"
-                rx="9999"
-                fill="none"
-                stroke="rgba(102, 102, 102, 0.3)"
-                strokeWidth="1"
-              />
-            </svg>
+            <div className="absolute inset-0 w-full h-full rounded-full border border-muted-gray/30" />
+            
             {/* Progress Mask */}
             <motion.div 
-              className="absolute inset-0 w-full h-full rounded-full"
-              style={{
-                background: 'transparent',
-                maskImage: `conic-gradient(from calc(0deg - ${scrollProgress * 180}deg) at 50% 50%, black ${scrollProgress * 360}deg, transparent 0)`,
-                WebkitMaskImage: `conic-gradient(from calc(0deg - ${scrollProgress * 180}deg) at 50% 50%, black ${scrollProgress * 360}deg, transparent 0)`
-              }}
-            >
-              <svg className="absolute inset-0 w-full h-full overflow-visible">
-                <rect
-                  x="1"
-                  y="1"
-                  width="calc(100% - 2px)"
-                  height="calc(100% - 2px)"
-                  rx="9999"
-                  fill="none"
-                  stroke="#B4F000"
-                  strokeWidth="2"
-                />
-              </svg>
-            </motion.div>
+              className="absolute inset-0 w-full h-full rounded-full border-2 border-neon-lime"
+              style={{ clipPath }}
+            />
           </div>
 
           <div className="flex items-center gap-2 md:gap-6 overflow-x-auto md:overflow-visible no-scrollbar pb-2 relative z-10">
