@@ -94,24 +94,9 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           <div>CLEARANCE: AUTHORIZED</div>
         </motion.div>
 
-        {/* Binary code animation */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none opacity-5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 2 }}
-        >
-          <div className="tactical-mono text-xs text-tactical-cyan">
-            {Array.from({ length: 20 }, (_, i) => (
-              <div key={i} className="whitespace-nowrap">
-                {Array.from({ length: 50 }, () => 
-                  Math.random() > 0.5 ? '1' : '0'
-                ).join('')}
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        
 
+  );
         {/* Loading indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"

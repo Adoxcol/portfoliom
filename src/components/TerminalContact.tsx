@@ -6,7 +6,6 @@ const TerminalContact = () => {
   const [output, setOutput] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [cursorPosition, setCursorPosition] = useState(0);
   const terminalRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (field: string, value: string) => {
@@ -20,7 +19,6 @@ const TerminalContact = () => {
     if (formData.email) parts.push(`--email="${formData.email}"`);
     if (formData.message) parts.push(`--message="${formData.message}"`);
     setCommand(`initiate_contact ${parts.join(' ')}`);
-    setCursorPosition(command.length);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
