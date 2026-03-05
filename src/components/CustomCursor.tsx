@@ -26,11 +26,12 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed pointer-events-none z-50"
+      className="fixed pointer-events-none z-[9999] top-0 left-0"
       style={{
-        left: mousePosition.x,
-        top: mousePosition.y,
-        transform: 'translate(-50%, -50%)',
+        x: mousePosition.x,
+        y: mousePosition.y,
+        translateX: '-50%',
+        translateY: '-50%',
       }}
       animate={{
         opacity: isVisible ? 1 : 0,

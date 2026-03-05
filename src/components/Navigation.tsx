@@ -70,76 +70,75 @@ const Navigation = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div 
-          className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:flex flex-col gap-4"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 20 }}
-          transition={{ duration: 0.5 }}
+          className="fixed top-6 left-1/2 z-50 flex justify-center py-2 px-6 bg-tactical-black/80 backdrop-blur-md border border-muted-gray/30 rounded-full shadow-lg shadow-neon-lime/10"
+          initial={{ opacity: 0, y: -50, x: "-50%" }}
+          animate={{ opacity: 1, y: 0, x: "-50%" }}
+          exit={{ opacity: 0, y: -50, x: "-50%" }}
+          transition={{ duration: 0.3 }}
         >
-          {/* Navigation Line */}
-          <div className="absolute right-6 top-0 bottom-0 w-px bg-muted-gray opacity-20 -z-10" />
-
-          {navItems.map((item) => (
-            <div
-              key={item.id}
-              className="relative flex items-center justify-end group"
-              onMouseEnter={() => setHoveredItem(item.id)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-          {/* Label */}
-          <AnimatePresence>
-            {hoveredItem === item.id && (
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.2 }}
-                className={`absolute right-14 whitespace-nowrap tactical-label ${item.color} bg-tactical-black/80 px-2 py-1 border border-muted-gray/30 backdrop-blur-sm pointer-events-none`}
+          <div className="flex items-center gap-2 md:gap-6 overflow-x-auto md:overflow-visible no-scrollbar">
+            {navItems.map((item) => (
+              <div
+                key={item.id}
+                className="relative flex flex-col items-center group"
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
               >
-                [{item.label}]
-              </motion.div>
-            )}
-          </AnimatePresence>
+                {/* Icon Button */}
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative p-2 md:p-3 transition-all duration-300 rounded-full
+                    ${activeSection === item.id ? 'scale-110' : 'scale-100 hover:scale-105'}
+                  `}
+                >
+                  {/* Active/Hover Background */}
+                  <div className={`
+                    absolute inset-0 border border-muted-gray/30 bg-tactical-black/50 backdrop-blur-sm transition-all duration-300 rounded-full
+                    ${activeSection === item.id ? 'opacity-100 border-neon-lime/50 bg-neon-lime/10' : 'opacity-0 group-hover:opacity-100'}
+                  `} />
 
-          {/* Icon Button */}
-          <button
-            onClick={() => scrollToSection(item.id)}
-            className={`
-              relative p-3 transition-all duration-300
-              ${activeSection === item.id ? 'scale-110' : 'scale-100 hover:scale-105'}
-            `}
-          >
-            {/* Active/Hover Background */}
-            <div className={`
-              absolute inset-0 border border-muted-gray/30 bg-tactical-black/50 backdrop-blur-sm transition-all duration-300
-              ${activeSection === item.id ? 'opacity-100 border-neon-lime/50' : 'opacity-0 group-hover:opacity-100'}
-            `} />
+                  {/* Icon */}
+                  <item.icon 
+                    className={`
+                      w-5 h-5 md:w-6 md:h-6 relative z-10 transition-colors duration-300
+                      ${activeSection === item.id ? item.color : 'text-muted-gray group-hover:text-soft-white'}
+                    `} 
+                  />
 
-            {/* Icon */}
-            <item.icon 
-              className={`
-                w-5 h-5 relative z-10 transition-colors duration-300
-                ${activeSection === item.id ? item.color : 'text-muted-gray group-hover:text-soft-white'}
-              `} 
-            />
+                  {/* Active Indicator (Dot) */}
+                  {activeSection === item.id && (
+                    <motion.div
+                      layoutId="active-nav"
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-neon-lime rounded-full shadow-[0_0_8px_rgba(180,240,0,0.8)]"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </button>
 
-            {/* Active Indicator */}
-            {activeSection === item.id && (
-              <motion.div
-                layoutId="active-nav"
-                className="absolute -right-1 top-1/2 -translate-y-1/2 w-1 h-8 bg-neon-lime shadow-[0_0_10px_rgba(180,240,0,0.5)]"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 32 }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            )}
-          </button>
+                {/* Label (Tooltip style below) */}
+                <AnimatePresence>
+                  {hoveredItem === item.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 12 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className={`absolute top-full whitespace-nowrap tactical-label ${item.color} bg-tactical-black/90 px-3 py-1 border border-muted-gray/30 backdrop-blur-sm rounded-md pointer-events-none z-[60] hidden md:block text-xs tracking-wider shadow-xl`}
+                    >
+                      {item.label}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
-        ))}
-      </motion.div>
-    )}
-  </AnimatePresence>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
