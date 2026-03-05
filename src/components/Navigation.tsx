@@ -22,19 +22,50 @@ const Navigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
+      // Calculate scroll progress
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = totalScroll / windowHeight;
+      setScrollProgress(scroll);
+
+      // Show nav on scroll
       if (window.scrollY > 100) {
         setIsVisible(true);
+        
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+        
+        // Set new timeout to hide nav after 2s if not hovered
+        scrollTimeout = setTimeout(() => {
+          if (!isHovered) {
+            setIsVisible(false);
+          }
+        }, 2000);
       } else {
         setIsVisible(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, [isHovered]);
+
+  // Effect to handle hover state changes for auto-hide
+  useEffect(() => {
+    if (isHovered && window.scrollY > 100) {
+      setIsVisible(true);
+    }
+  }, [isHovered]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,13 +101,54 @@ const Navigation = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div 
-          className="fixed top-6 left-1/2 z-50 flex justify-center py-2 px-6 bg-tactical-black/80 backdrop-blur-md border border-muted-gray/30 rounded-full shadow-lg shadow-neon-lime/10"
+          className="fixed top-6 left-1/2 z-50 flex justify-center py-2 px-6 bg-tactical-black/80 backdrop-blur-md rounded-full shadow-lg shadow-neon-lime/10"
           initial={{ opacity: 0, y: -50, x: "-50%" }}
           animate={{ opacity: 1, y: 0, x: "-50%" }}
           exit={{ opacity: 0, y: -50, x: "-50%" }}
           transition={{ duration: 0.3 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="flex items-center gap-2 md:gap-6 overflow-x-auto md:overflow-visible no-scrollbar">
+          {/* Progress Border */}
+          <div className="absolute inset-0 rounded-full pointer-events-none">
+            {/* Track */}
+            <svg className="absolute inset-0 w-full h-full overflow-visible">
+              <rect
+                x="1"
+                y="1"
+                width="calc(100% - 2px)"
+                height="calc(100% - 2px)"
+                rx="9999"
+                fill="none"
+                stroke="rgba(102, 102, 102, 0.3)"
+                strokeWidth="1"
+              />
+            </svg>
+            {/* Progress Mask */}
+            <motion.div 
+              className="absolute inset-0 w-full h-full rounded-full"
+              style={{
+                background: 'transparent',
+                maskImage: `conic-gradient(from calc(0deg - ${scrollProgress * 180}deg) at 50% 50%, black ${scrollProgress * 360}deg, transparent 0)`,
+                WebkitMaskImage: `conic-gradient(from calc(0deg - ${scrollProgress * 180}deg) at 50% 50%, black ${scrollProgress * 360}deg, transparent 0)`
+              }}
+            >
+              <svg className="absolute inset-0 w-full h-full overflow-visible">
+                <rect
+                  x="1"
+                  y="1"
+                  width="calc(100% - 2px)"
+                  height="calc(100% - 2px)"
+                  rx="9999"
+                  fill="none"
+                  stroke="#B4F000"
+                  strokeWidth="2"
+                />
+              </svg>
+            </motion.div>
+          </div>
+
+          <div className="flex items-center gap-2 md:gap-6 overflow-x-auto md:overflow-visible no-scrollbar pb-2 relative z-10">
             {navItems.map((item) => (
               <div
                 key={item.id}
@@ -105,18 +177,6 @@ const Navigation = () => {
                       ${activeSection === item.id ? item.color : 'text-muted-gray group-hover:text-soft-white'}
                     `} 
                   />
-
-                  {/* Active Indicator (Dot) */}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="active-nav"
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-neon-lime rounded-full shadow-[0_0_8px_rgba(180,240,0,0.8)]"
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
                 </button>
 
                 {/* Label (Tooltip style below) */}
