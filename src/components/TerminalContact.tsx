@@ -63,7 +63,7 @@ const TerminalContact = () => {
   }, [output]);
 
   return (
-    <section id="contact" className="py-32 bg-tactical-black">
+    <section id="contact" className="py-32 bg-tactical-section">
       <div className="container mx-auto px-6">
         <motion.div
           className="mb-16 text-center"
