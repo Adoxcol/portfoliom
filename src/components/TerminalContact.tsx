@@ -21,6 +21,8 @@ const TerminalContact = () => {
     setCommand(`initiate_contact ${parts.join(' ')}`);
   };
 
+  const CONTACT_EMAIL = "mahfuzurrrahmannn@gmail.com"; // TODO: Replace with your actual email address
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -45,6 +47,9 @@ const TerminalContact = () => {
       'STATUS: AWAITING ACKNOWLEDGMENT',
       ''
     ]);
+
+    // Open default email client
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=Contact from ${formData.name}&body=${formData.message}%0D%0A%0D%0AFrom: ${formData.name} (${formData.email})`;
 
     // Reset after 3 seconds
     setTimeout(() => {
@@ -187,10 +192,37 @@ const TerminalContact = () => {
                 </div>
 
                 {/* Command preview */}
-                <div className="mt-4 p-3 bg-tactical-card tactical-border">
-                  <div className="tactical-mono text-xs text-muted-gray mb-1">COMMAND:</div>
-                  <div className="tactical-mono text-sm text-soft-white break-all">
-                    {command || 'initiate_contact --name="" --email="" --message=""'}
+                <div className="mt-4 p-4 bg-tactical-card tactical-border border-l-4 border-l-neon-lime/50">
+                  <div className="flex justify-between items-center mb-2">
+                    <div className="tactical-mono text-xs text-neon-lime font-bold">TRANSMISSION_PREVIEW</div>
+                    <div className="tactical-mono text-xs text-muted-gray">{new Date().toLocaleTimeString()}</div>
+                  </div>
+                  
+                  <div className="tactical-mono text-xs space-y-1">
+                    <div className="grid grid-cols-[80px_1fr] gap-2">
+                      <span className="text-muted-gray">TARGET:</span>
+                      <span className="text-tactical-cyan">{CONTACT_EMAIL}</span>
+                    </div>
+                    <div className="grid grid-cols-[80px_1fr] gap-2">
+                      <span className="text-muted-gray">SOURCE:</span>
+                      <span className="text-soft-white">{formData.email || 'UNKNOWN_ORIGIN'}</span>
+                    </div>
+                    <div className="grid grid-cols-[80px_1fr] gap-2">
+                      <span className="text-muted-gray">SUBJECT:</span>
+                      <span className="text-soft-white">{formData.name ? `TRANSMISSION FROM ${formData.name.toUpperCase()}` : 'INCOMING_TRANSMISSION'}</span>
+                    </div>
+                    
+                    <div className="mt-2 pt-2 border-t border-muted-gray/20">
+                      <span className="text-muted-gray block mb-1">PAYLOAD:</span>
+                      <div className="text-soft-white/80 bg-tactical-black/30 p-2 rounded border border-muted-gray/10 min-h-[60px] whitespace-pre-wrap">
+                        {formData.message || 'NO_DATA_PACKET'}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 pt-2 border-t border-dashed border-muted-gray/30 flex justify-between items-center">
+                     <span className="text-[10px] text-muted-gray">ENCRYPTION: AES-256</span>
+                     <span className="text-[10px] text-neon-lime animate-pulse">{formData.message ? 'READY_TO_TRANSMIT' : 'AWAITING_INPUT'}</span>
                   </div>
                 </div>
 
