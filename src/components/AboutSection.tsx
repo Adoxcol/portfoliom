@@ -77,7 +77,7 @@ const AboutSection = () => {
               <div className="flex items-center justify-between py-3 border-b border-muted-gray border-opacity-30">
                 <span className="tactical-label text-muted-gray">YEARS ACTIVE</span>
                 <div className="flex items-center gap-3">
-                  <span className="tactical-mono text-2xl text-neon-lime">5+</span>
+                  <span className="tactical-mono text-2xl text-neon-lime">1+</span>
                   <div className="w-16 h-px bg-gradient-to-r from-neon-lime to-transparent"></div>
                 </div>
               </div>

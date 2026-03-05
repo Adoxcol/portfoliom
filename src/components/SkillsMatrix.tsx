@@ -16,11 +16,11 @@ const skills: Skill[] = [
   { name: 'Vector Databases', level: 82, category: 'AI' },
   
   // DevOps Skills
-  { name: 'AWS', level: 92, category: 'DevOps' },
-  { name: 'Docker', level: 90, category: 'DevOps' },
+  { name: 'Docker', level: 92, category: 'DevOps' },
+  { name: 'AWS', level: 90, category: 'DevOps' },
   { name: 'Kubernetes', level: 85, category: 'DevOps' },
   { name: 'CI/CD', level: 88, category: 'DevOps' },
-  { name: 'Terraform', level: 80, category: 'DevOps' },
+  { name: 'VersionControl', level: 80, category: 'DevOps' },
   
   // Backend Skills
   { name: 'Node.js', level: 95, category: 'Backend' },
