@@ -28,21 +28,21 @@ const AboutSection = () => {
           >
             <div className="tactical-mono text-lg text-soft-white leading-relaxed space-y-4">
               <p>
-                Systems architect specializing in scalable AI infrastructure and automation pipelines. 
-                Engineering robust backend solutions with focus on distributed systems and cloud-native 
-                architectures.
+                Full-stack engineer specializing in scalable web platforms and headless CMS architectures.
+                Building high-performance applications using Next.js, React, and TypeScript with a focus on
+                maintainable systems, strong type safety, and modern full-stack development practices.
               </p>
               
               <p>
-                Expertise in LLM integration, vector databases, and real-time data processing. 
-                Building intelligent systems that leverage machine learning for automated decision-making 
-                and enhanced user experiences.
+                Expertise in AI and computer vision systems, including CNN-based classification models,
+                real-time inference pipelines, and data-driven applications. Developing intelligent systems
+                that combine machine learning, automation, and real-time processing to solve complex problems.
               </p>
               
               <p>
-                DevOps practitioner implementing CI/CD pipelines, container orchestration, and 
-                infrastructure-as-code. Ensuring high availability and performance across distributed 
-                cloud environments.
+               Cloud-focused developer working with AWS infrastructure, containerized services, and modern
+               deployment workflows. Engineering reliable systems with scalable APIs, optimized databases,
+               and performant architectures designed for production environments.
               </p>
             </div>
 

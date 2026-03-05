@@ -43,7 +43,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              SYSTEM ARCHITECT
+              Full Stack AI Developer
             </motion.div>
           </div>
 
@@ -93,7 +93,7 @@ const HeroSection = () => {
               </svg>
             </a>
             <a 
-              href="mailto:mahmood.tauhidul@example.com" 
+              href="mailto:mahfuzurrrahmannn@gmail.com" 
               className="tactical-border border border-muted-gray hover:border-tactical-magenta p-3 transition-colors duration-300 group"
             >
               <svg className="w-5 h-5 text-muted-gray group-hover:text-tactical-magenta" fill="currentColor" viewBox="0 0 24 24">
@@ -159,11 +159,11 @@ const HeroSection = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
                 <div className="tactical-label text-muted-gray">YEARS ACTIVE</div>
-                <div className="tactical-mono text-2xl text-neon-lime mt-1">5+</div>
+                <div className="tactical-mono text-2xl text-neon-lime mt-1">1+</div>
               </div>
               <div className="text-center">
                 <div className="tactical-label text-muted-gray">PROJECTS</div>
-                <div className="tactical-mono text-2xl text-tactical-cyan mt-1">50+</div>
+                <div className="tactical-mono text-2xl text-tactical-cyan mt-1">7+</div>
               </div>
             </div>
           </motion.div>
