@@ -18,7 +18,7 @@ const skills: Skill[] = [
   // DevOps Skills
   { name: 'Docker', level: 92, category: 'DevOps' },
   { name: 'AWS', level: 90, category: 'DevOps' },
-  { name: 'Kubernetes', level: 85, category: 'DevOps' },
+  { name: 'Firebase', level: 85, category: 'DevOps' },
   { name: 'CI/CD', level: 88, category: 'DevOps' },
   { name: 'VersionControl', level: 80, category: 'DevOps' },
   

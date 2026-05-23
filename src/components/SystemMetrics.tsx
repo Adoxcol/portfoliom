@@ -9,9 +9,9 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  { label: 'PROJECTS DEPLOYED', value: 10, suffix: '', color: 'text-neon-lime' },
+  { label: 'PROJECTS DEPLOYED', value: 11, suffix: '', color: 'text-neon-lime' },
   { label: 'SYSTEMS AUTOMATED', value: 3, suffix: '', color: 'text-tactical-cyan' },
-  { label: 'APIS BUILT', value: 24, suffix: '', color: 'text-tactical-magenta' },
+  { label: 'APIS BUILT', value: 25, suffix: '', color: 'text-tactical-magenta' },
   { label: 'AI MODELS INTEGRATED', value: 7, suffix: '', color: 'text-neon-lime' },
 ];
 

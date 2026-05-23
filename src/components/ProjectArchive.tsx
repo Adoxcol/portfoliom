@@ -76,13 +76,12 @@ const projects: Project[] = [
     category: 'FULL-STACK',
     techStack: ['React', 'JavaScript', 'HTML', 'TailwindCSS'],
     status: 'EXPERIMENTAL',
-    description: 'Comprehensive K8s cluster monitoring solution',
-    longDescription: 'A centralized observability platform for Kubernetes clusters, integrating Prometheus for metrics collection and Grafana for visualization. It includes custom exporters written in Go for specific application metrics.',
+    description: 'Visual Novel Game',
+    longDescription: 'A web-based visual novel game that allows users to explore interactive stories and engage with characters in a virtual environment.',
     features: [
-      'Auto-discovery of new pods and services',
-      'Custom metric exporters in Go',
-      'AlertManager integration for critical incidents',
-      'Resource usage optimization recommendations'
+      'Interactive storylines',
+      'Character interaction',
+      'Dynamic story progression'
     ],
     imageUrl: '/images/novel.png',
     githubUrl: 'https://github.com/Adoxcol/flowervisualnovel',
@@ -107,19 +106,18 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    name: 'Fabric Analyzer',
-    category: 'BACKEND',
-    techStack: ['C#', 'RabbitMQ', 'Redis', 'PostgreSQL'],
+    name: 'Guido Extension',
+    category: 'Extension',
+    techStack: ['Javascript', 'Firebase', 'Firebase Functions', 'Gitlab'],
     status: 'DEPLOYED',
-    description: 'High-performance distributed task processing system',
-    longDescription: 'A robust background job processing system designed for high concurrency and fault tolerance. It uses RabbitMQ for message brokering and Redis for state management, ensuring reliable execution of critical business tasks.',
+    description: 'Workflow Capture Extension',
+    longDescription: 'A workflow capture extension for major browsers that allows users to capture and share their browser tabs with others.',
     features: [
-      'Priority queue management',
-      'Automatic retries and dead-letter handling',
-      'Horizontal scaling capabilities',
-      'Real-time processing metrics'
+      'Capture and share browser tabs with others',
+      'Real-time collaboration on shared tabs',
+      'Customizable tab sharing permissions'
     ],
-    imageUrl: 'https://placehold.co/600x400/1a1a1a/FF2E88?text=TASK+QUEUE',
+    imageUrl: '/images/guido.png',
     githubUrl: 'https://github.com'
   }
 ];
