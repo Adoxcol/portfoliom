@@ -72,20 +72,19 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    name: 'Visual Novel Game',
+    name: 'Evergreen Construction',
     category: 'FULL-STACK',
     techStack: ['React', 'JavaScript', 'HTML', 'TailwindCSS'],
-    status: 'EXPERIMENTAL',
-    description: 'Visual Novel Game',
-    longDescription: 'A web-based visual novel game that allows users to explore interactive stories and engage with characters in a virtual environment.',
+    status: 'DEPLOYED',
+    description: 'Landing website for a construction company brand presence.',
+    longDescription: 'A polished landing website built for Evergreen Construction to present the company\'s services, strengthen its online presence, and give potential clients a clear path to learn more and get in touch.',
     features: [
-      'Interactive storylines',
-      'Character interaction',
-      'Dynamic story progression'
+      'Modern company landing page layout',
+      'Service-focused content sections',
+      'Responsive design for desktop and mobile'
     ],
-    imageUrl: '/images/novel.png',
-    githubUrl: 'https://github.com/Adoxcol/flowervisualnovel',
-    liveUrl: 'https://adoxcol.github.io/flowervisualnovel/'
+    imageUrl: '/images/EvergreenConstruction.png',
+    liveUrl: 'https://evergreen-alpha-eight.vercel.app/'
   },
   {
     id: 5,
