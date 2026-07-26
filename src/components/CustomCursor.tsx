@@ -26,7 +26,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed pointer-events-none z-[9999] top-0 left-0"
+      className="custom-cursor fixed pointer-events-none z-[9999] top-0 left-0"
       style={{
         x: mousePosition.x,
         y: mousePosition.y,

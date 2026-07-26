@@ -6,14 +6,19 @@ import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ProjectArchive from './components/ProjectArchive';
+import HobbyCreations from './components/HobbyCreations';
+import MissionLog from './components/MissionLog';
 import SkillsMatrix from './components/SkillsMatrix';
 import SystemMetrics from './components/SystemMetrics';
 import TerminalContact from './components/TerminalContact';
+import TerminalCommandPalette from './components/TerminalCommandPalette';
+import { useTheme } from './hooks/useTheme';
 import './index.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showCursor, setShowCursor] = useState(false);
+  const { theme, toggleTheme, setTheme } = useTheme();
 
   useEffect(() => {
     // Hide default cursor and show custom cursor after loading
@@ -42,6 +47,15 @@ function App() {
       {/* Navigation */}
       {!isLoading && <Navigation />}
 
+      {/* Command Palette */}
+      {!isLoading && (
+        <TerminalCommandPalette
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onSetTheme={setTheme}
+        />
+      )}
+
       {/* Tactical Background */}
       <TacticalBackground />
 
@@ -50,6 +64,8 @@ function App() {
         <HeroSection />
         <AboutSection />
         <ProjectArchive />
+        <HobbyCreations />
+        <MissionLog />
         <SkillsMatrix />
         <SystemMetrics />
         <TerminalContact />

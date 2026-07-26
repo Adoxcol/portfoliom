@@ -24,6 +24,7 @@ const skills: Skill[] = [
   
   // Backend Skills
   { name: 'Node.js', level: 95, category: 'Backend' },
+  { name: 'Golang', level: 84, category: 'Backend' },
   { name: 'C#', level: 88, category: 'Backend' },
   { name: 'Python', level: 85, category: 'Backend' },
   { name: 'REST APIs', level: 92, category: 'Backend' },

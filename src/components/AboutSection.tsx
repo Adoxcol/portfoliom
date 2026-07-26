@@ -29,7 +29,8 @@ const AboutSection = () => {
             <div className="tactical-mono text-lg text-soft-white leading-relaxed space-y-4">
               <p>
                 Full-stack engineer specializing in scalable web platforms and headless CMS architectures.
-                Building high-performance applications using Next.js, React, and TypeScript with a focus on
+                Currently working at RemoteIntegrity and building high-performance applications using Next.js,
+                React, TypeScript, and Golang with a focus on
                 maintainable systems, strong type safety, and modern full-stack development practices.
               </p>
               
@@ -86,8 +87,8 @@ const AboutSection = () => {
               <div className="flex items-center justify-between py-3 border-b border-muted-gray border-opacity-30">
                 <span className="tactical-label text-muted-gray">STACK</span>
                 <div className="text-right">
-                  <div className="tactical-mono text-sm text-soft-white">Node.js • Python • C#</div>
-                  <div className="tactical-mono text-xs text-muted-gray mt-1">React • TypeScript</div>
+                  <div className="tactical-mono text-sm text-soft-white">Node.js • Golang • Python • C#</div>
+                  <div className="tactical-mono text-xs text-muted-gray mt-1">React • TypeScript • Next.js</div>
                 </div>
               </div>
 
@@ -104,8 +105,17 @@ const AboutSection = () => {
               <div className="flex items-center justify-between py-3 border-b border-muted-gray border-opacity-30">
                 <span className="tactical-label text-muted-gray">LANGUAGES</span>
                 <div className="text-right">
-                  <div className="tactical-mono text-sm text-tactical-magenta">JavaScript</div>
+                  <div className="tactical-mono text-sm text-tactical-magenta">JavaScript • Golang</div>
                   <div className="tactical-mono text-xs text-muted-gray mt-1">Python • C# • SQL</div>
+                </div>
+              </div>
+
+              {/* Current Company */}
+              <div className="flex items-center justify-between py-3 border-b border-muted-gray border-opacity-30">
+                <span className="tactical-label text-muted-gray">CURRENT COMPANY</span>
+                <div className="text-right">
+                  <div className="tactical-mono text-sm text-neon-lime">RemoteIntegrity</div>
+                  <div className="tactical-mono text-xs text-muted-gray mt-1">Full Stack / AI / SQA</div>
                 </div>
               </div>
 

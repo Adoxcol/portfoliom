@@ -43,7 +43,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Full Stack AI Developer
+              Full Stack AI Developer at RemoteIntegrity
             </motion.div>
           </div>
 
@@ -150,6 +150,11 @@ const HeroSection = () => {
                 <span className="tactical-label text-muted-gray">SPECIALIZATION</span>
                 <span className="tactical-mono text-tactical-magenta text-sm">FULL STACK / AI / SQA</span>
               </div>
+
+              <div className="flex items-center justify-between">
+                <span className="tactical-label text-muted-gray">CURRENT ROLE</span>
+                <span className="tactical-mono text-neon-lime text-sm">REMOTEINTEGRITY</span>
+              </div>
             </div>
 
             {/* Horizontal divider */}
@@ -163,7 +168,7 @@ const HeroSection = () => {
               </div>
               <div className="text-center">
                 <div className="tactical-label text-muted-gray">PROJECTS</div>
-                <div className="tactical-mono text-2xl text-tactical-cyan mt-1">7+</div>
+                <div className="tactical-mono text-2xl text-tactical-cyan mt-1">16</div>
               </div>
             </div>
           </motion.div>

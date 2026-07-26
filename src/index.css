@@ -4,31 +4,100 @@
 
 /* Tactical Interface Base Styles */
 :root {
+  --color-tactical-black: 10 10 10;
+  --color-tactical-black-rgb: 10, 10, 10;
+  --color-tactical-section: 17 17 17;
+  --color-tactical-section-rgb: 17, 17, 17;
+  --color-tactical-card: 22 22 22;
+  --color-tactical-card-rgb: 22, 22, 22;
+  --color-neon-lime: 180 240 0;
+  --color-neon-lime-rgb: 180, 240, 0;
+  --color-tactical-magenta: 255 46 136;
+  --color-tactical-magenta-rgb: 255, 46, 136;
+  --color-tactical-cyan: 0 240 255;
+  --color-tactical-cyan-rgb: 0, 240, 255;
+  --color-soft-white: 234 234 234;
+  --color-soft-white-rgb: 234, 234, 234;
+  --color-muted-gray: 102 102 102;
+  --color-muted-gray-rgb: 102, 102, 102;
+  --color-border: 51 51 51;
+  --color-border-rgb: 51, 51, 51;
+  --color-scrollbar-track: 10 10 10;
+  --color-scrollbar-track-rgb: 10, 10, 10;
+  --color-scrollbar-thumb: 51 51 51;
+  --color-scrollbar-thumb-rgb: 51, 51, 51;
+  --color-scrollbar-thumb-hover: 85 85 85;
+  --color-scrollbar-thumb-hover-rgb: 85, 85, 85;
+  --color-selection-bg: 180 240 0;
+  --color-selection-bg-rgb: 180, 240, 0;
+  --color-selection-text: 10 10 10;
+  --color-selection-text-rgb: 10, 10, 10;
+  --color-focus: 0 240 255;
+  --color-focus-rgb: 0, 240, 255;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  --color-tactical-black: 244 247 250;
+  --color-tactical-black-rgb: 244, 247, 250;
+  --color-tactical-section: 255 255 255;
+  --color-tactical-section-rgb: 255, 255, 255;
+  --color-tactical-card: 248 250 252;
+  --color-tactical-card-rgb: 248, 250, 252;
+  --color-neon-lime: 118 158 0;
+  --color-neon-lime-rgb: 118, 158, 0;
+  --color-tactical-magenta: 184 36 96;
+  --color-tactical-magenta-rgb: 184, 36, 96;
+  --color-tactical-cyan: 0 118 148;
+  --color-tactical-cyan-rgb: 0, 118, 148;
+  --color-soft-white: 15 23 33;
+  --color-soft-white-rgb: 15, 23, 33;
+  --color-muted-gray: 91 103 117;
+  --color-muted-gray-rgb: 91, 103, 117;
+  --color-border: 214 222 230;
+  --color-border-rgb: 214, 222, 230;
+  --color-scrollbar-track: 236 241 246;
+  --color-scrollbar-track-rgb: 236, 241, 246;
+  --color-scrollbar-thumb: 186 196 207;
+  --color-scrollbar-thumb-rgb: 186, 196, 207;
+  --color-scrollbar-thumb-hover: 150 162 175;
+  --color-scrollbar-thumb-hover-rgb: 150, 162, 175;
+  --color-selection-bg: 118 158 0;
+  --color-selection-bg-rgb: 118, 158, 0;
+  --color-selection-text: 255 255 255;
+  --color-selection-text-rgb: 255, 255, 255;
+  --color-focus: 0 118 148;
+  --color-focus-rgb: 0, 118, 148;
+  color-scheme: light;
+}
+
 /* Custom Tactical Utilities */
 @layer utilities {
   /* Tactical border with no rounded corners */
   .tactical-border {
-    border: 1px solid #333;
+    border: 1px solid rgb(var(--color-border-rgb));
     border-radius: 0;
+    box-shadow: 0 0 0 1px rgba(var(--color-border-rgb), 0.06);
   }
   
   /* Neon glow effects */
   .neon-glow-lime {
-    box-shadow: 0 0 5px #B4F000, 0 0 10px #B4F000, 0 0 15px #B4F000;
+    box-shadow: 0 0 5px rgb(var(--color-neon-lime-rgb)), 0 0 10px rgb(var(--color-neon-lime-rgb)), 0 0 15px rgb(var(--color-neon-lime-rgb));
   }
   
   .neon-glow-magenta {
-    box-shadow: 0 0 5px #FF2E88, 0 0 10px #FF2E88, 0 0 15px #FF2E88;
+    box-shadow: 0 0 5px rgb(var(--color-tactical-magenta-rgb)), 0 0 10px rgb(var(--color-tactical-magenta-rgb)), 0 0 15px rgb(var(--color-tactical-magenta-rgb));
   }
   
   .neon-glow-cyan {
-    box-shadow: 0 0 5px #00F0FF, 0 0 10px #00F0FF, 0 0 15px #00F0FF;
+    box-shadow: 0 0 5px rgb(var(--color-tactical-cyan-rgb)), 0 0 10px rgb(var(--color-tactical-cyan-rgb)), 0 0 15px rgb(var(--color-tactical-cyan-rgb));
   }
   
   /* Scanline effect */
@@ -44,6 +113,7 @@
       rgba(0, 240, 255, 0.03) 50%
     );
     background-size: 100% 4px;
+    opacity: 0.45;
     pointer-events: none;
     z-index: 1;
   }
@@ -57,6 +127,7 @@
     right: 0;
     bottom: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+    opacity: 0.35;
     pointer-events: none;
     z-index: 2;
   }
@@ -90,9 +161,47 @@
 
 /* Global styles */
 body {
-  background-color: #0A0A0A;
-  color: #EAEAEA;
+  background-color: rgb(var(--color-tactical-black-rgb));
+  background-image:
+    radial-gradient(circle at top left, rgba(var(--color-neon-lime-rgb), 0.07), transparent 24%),
+    radial-gradient(circle at top right, rgba(var(--color-tactical-cyan-rgb), 0.06), transparent 26%),
+    linear-gradient(180deg, rgba(var(--color-tactical-section-rgb), 0.22), transparent 42%);
+  color: rgb(var(--color-soft-white-rgb));
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+html.light body {
+  background-image:
+    radial-gradient(circle at top left, rgba(var(--color-neon-lime-rgb), 0.06), transparent 22%),
+    radial-gradient(circle at top right, rgba(var(--color-tactical-cyan-rgb), 0.05), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgb(var(--color-tactical-black-rgb)) 68%);
+}
+
+.custom-cursor {
+  filter: drop-shadow(0 0 10px rgba(var(--color-neon-lime-rgb), 0.18));
+}
+
+html.light .custom-cursor {
+  filter: drop-shadow(0 0 12px rgba(var(--color-neon-lime-rgb), 0.22));
+}
+
+html.light .scanline::before {
+  background: linear-gradient(
+    transparent 50%,
+    rgba(var(--color-tactical-cyan-rgb), 0.025) 50%
+  );
+  opacity: 0.18;
+}
+
+html.light .noise-overlay::after {
+  opacity: 0.12;
+}
+
+html.light .tactical-border {
+  box-shadow:
+    0 18px 40px -30px rgba(15, 23, 33, 0.16),
+    0 0 0 1px rgba(var(--color-border-rgb), 0.55);
 }
 
 /* Custom scrollbar */
@@ -101,27 +210,27 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: rgb(var(--color-scrollbar-track-rgb));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: rgb(var(--color-scrollbar-thumb-rgb));
   border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(var(--color-scrollbar-thumb-hover-rgb));
 }
 
 /* Selection styles */
 ::selection {
-  background-color: #B4F000;
-  color: #0A0A0A;
+  background-color: rgb(var(--color-selection-bg-rgb));
+  color: rgb(var(--color-selection-text-rgb));
 }
 
 /* Focus styles */
 *:focus {
-  outline: 2px solid #00F0FF;
+  outline: 2px solid rgb(var(--color-focus-rgb));
   outline-offset: 2px;
 }
 

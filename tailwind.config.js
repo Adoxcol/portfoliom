@@ -10,14 +10,14 @@ export default {
     extend: {
       colors: {
         // Tactical interface colors
-        'tactical-black': '#0A0A0A',
-        'tactical-section': '#111111',
-        'tactical-card': '#161616',
-        'neon-lime': '#B4F000',
-        'tactical-magenta': '#FF2E88',
-        'tactical-cyan': '#00F0FF',
-        'soft-white': '#EAEAEA',
-        'muted-gray': '#666666',
+        'tactical-black': 'rgb(var(--color-tactical-black) / <alpha-value>)',
+        'tactical-section': 'rgb(var(--color-tactical-section) / <alpha-value>)',
+        'tactical-card': 'rgb(var(--color-tactical-card) / <alpha-value>)',
+        'neon-lime': 'rgb(var(--color-neon-lime) / <alpha-value>)',
+        'tactical-magenta': 'rgb(var(--color-tactical-magenta) / <alpha-value>)',
+        'tactical-cyan': 'rgb(var(--color-tactical-cyan) / <alpha-value>)',
+        'soft-white': 'rgb(var(--color-soft-white) / <alpha-value>)',
+        'muted-gray': 'rgb(var(--color-muted-gray) / <alpha-value>)',
       },
       fontFamily: {
         'space-grotesk': ['Space Grotesk', 'monospace'],

@@ -9,10 +9,10 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  { label: 'PROJECTS DEPLOYED', value: 11, suffix: '', color: 'text-neon-lime' },
-  { label: 'SYSTEMS AUTOMATED', value: 3, suffix: '', color: 'text-tactical-cyan' },
-  { label: 'APIS BUILT', value: 25, suffix: '', color: 'text-tactical-magenta' },
-  { label: 'AI MODELS INTEGRATED', value: 7, suffix: '', color: 'text-neon-lime' },
+  { label: 'PROJECTS DEPLOYED', value: 16, suffix: '', color: 'text-neon-lime' },
+  { label: 'SYSTEMS AUTOMATED', value: 11, suffix: '', color: 'text-tactical-cyan' },
+  { label: 'APIS INTEGRATED', value: 50, suffix: '', color: 'text-tactical-magenta' },
+  { label: 'AI MODELS INTEGRATED', value: 14, suffix: '', color: 'text-neon-lime' },
 ];
 
 const AnimatedCounter = ({ metric, index }: { metric: Metric; index: number }) => {

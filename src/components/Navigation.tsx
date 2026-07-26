@@ -4,6 +4,8 @@ import {
   Home, 
   User, 
   FolderGit2, 
+  Beaker,
+  Map,
   Cpu, 
   Activity, 
   Terminal 
@@ -13,6 +15,8 @@ const navItems = [
   { id: 'hero', label: 'HOME', icon: Home, color: 'text-soft-white' },
   { id: 'about', label: 'SYSTEM', icon: User, color: 'text-neon-lime' },
   { id: 'projects', label: 'ARCHIVE', icon: FolderGit2, color: 'text-tactical-cyan' },
+  { id: 'hobby', label: 'LAB', icon: Beaker, color: 'text-tactical-magenta' },
+  { id: 'mission', label: 'LOG', icon: Map, color: 'text-neon-lime' },
   { id: 'skills', label: 'SKILLS', icon: Cpu, color: 'text-tactical-magenta' },
   { id: 'metrics', label: 'METRICS', icon: Activity, color: 'text-neon-lime' },
   { id: 'contact', label: 'UPLINK', icon: Terminal, color: 'text-tactical-cyan' },

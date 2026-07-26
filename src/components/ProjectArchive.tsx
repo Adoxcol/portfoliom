@@ -12,6 +12,10 @@ interface Project {
   longDescription: string;
   features: string[];
   imageUrl: string;
+  problem: string;
+  role: string;
+  challenges: string[];
+  outcome: string;
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -19,19 +23,27 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    name: 'Goverment Hospital Website',
+    name: 'Government Hospital Website',
     category: 'FULL-STACK',
     techStack: ['Javascript', 'React', 'Node.js', 'Express', 'PayloadCMS'],
     status: 'DEPLOYED',
-    description: 'Advanced RAG system for enterprise knowledge management',
-    longDescription: 'A scalable Retrieval-Augmented Generation (RAG) system designed to process and query vast amounts of enterprise documentation. Leveraging OpenAI\'s embeddings and Pinecone vector database, it delivers context-aware answers with high accuracy.',
+    description: 'Official hospital website built to publish services, departments, and patient-facing information.',
+    longDescription: 'A full-stack website for a government hospital designed to present medical services, department information, notices, and institutional content in a clear, accessible format. Built with React on the frontend and a Node.js, Express, and PayloadCMS backend for manageable content updates.',
     features: [
-      'Semantic search across millions of documents',
-      'Context-aware answer generation',
-      'Real-time document indexing pipeline',
-      'Role-based access control for knowledge bases'
+      'CMS-driven content management with PayloadCMS',
+      'Department and service information pages',
+      'Responsive public-facing interface',
+      'Structured content updates for hospital administrators'
     ],
     imageUrl: '/images/gov.png',
+    problem: 'The hospital needed a public-facing site that could present services, department information, and institutional updates clearly for patients and visitors.',
+    role: 'Built the frontend and integrated a CMS-driven content workflow across the full-stack setup.',
+    challenges: [
+      'Keeping content updates manageable for non-technical administrators',
+      'Presenting a large amount of institutional information without making the site feel dense',
+      'Making the experience work reliably across devices for public access'
+    ],
+    outcome: 'Delivered a structured and maintainable hospital website that makes service information and updates easier to publish and easier to consume.',
     githubUrl: 'https://github.com/BinduLogic/government-hospital-website',
     liveUrl: 'https://nicvd-website.bgdtup.easypanel.host/en'
   },
@@ -41,15 +53,23 @@ const projects: Project[] = [
     category: 'FULL-STACK',
     techStack: ['AWS', 'Prisma', 'Node.js', 'Express', 'PostgreSQL'],
     status: 'DEPLOYED',
-    description: 'Automated deployment pipeline for microservices',
-    longDescription: 'A fully automated infrastructure-as-code solution for deploying microservices to AWS ECS. It handles build, test, and deployment phases with zero-downtime updates using Blue/Green deployment strategies.',
+    description: 'E-learning platform for managing online courses, learners, and training workflows.',
+    longDescription: 'A full-stack e-learning platform built to support digital education workflows with structured course delivery, backend data management, and scalable infrastructure. The system uses Node.js, Express, Prisma, and PostgreSQL, with AWS services supporting deployment and operational reliability.',
     features: [
-      'Infrastructure provisioning via Terraform',
-      'Automated container builds with Docker',
-      'Blue/Green deployment strategy',
-      'Integrated security scanning and compliance checks'
+      'Course and learner management flows',
+      'PostgreSQL data layer with Prisma ORM',
+      'Backend APIs for platform operations',
+      'AWS-backed deployment and hosting'
     ],
     imageUrl: '/images/dhi.png',
+    problem: 'The platform needed a scalable foundation for managing digital learning workflows, course content, and learner operations.',
+    role: 'Worked across backend and infrastructure-oriented parts of the system using Node.js, Express, Prisma, PostgreSQL, and AWS-backed delivery.',
+    challenges: [
+      'Supporting multiple moving parts in an education workflow',
+      'Keeping the data layer reliable as platform features expanded',
+      'Balancing application logic with deployment and hosting concerns'
+    ],
+    outcome: 'Helped shape a more production-ready e-learning platform with stronger backend organization and infrastructure support.',
     githubUrl: 'https://github.com/BinduLogic/dhi-e-learning'
   },
   {
@@ -58,15 +78,23 @@ const projects: Project[] = [
     category: 'FULL-STACK',
     techStack: ['Node.js', 'Next.js', 'React', 'WebSocket','Supabase'],
     status: 'DEPLOYED',
-    description: 'Real-time log processing and visualization system',
-    longDescription: 'A high-throughput log analysis platform that ingests, processes, and visualizes system logs in real-time. Built with the ELK stack and a React frontend, it provides instant insights into system health and anomalies.',
+    description: 'Academic planning platform for mapping courses, tracking progress, and organizing degree requirements.',
+    longDescription: 'DegreePlan is a student-focused planning tool that helps organize academic progress through a clearer view of courses, requirements, and roadmap decisions. Built with Next.js, React, Node.js, WebSockets, and Supabase, it supports a responsive planning experience with real-time interactions.',
     features: [
+      'Degree roadmap and course planning interface',
       'WebSocket-based real-time updates',
-      'Customizable dashboard with drag-and-drop widgets',
-      'Anomaly detection alerts',
-      'High-performance log ingestion pipeline'
+      'Supabase-backed data and sync flows',
+      'Responsive experience for student use'
     ],
     imageUrl: '/images/degree.png',
+    problem: 'Students needed a simpler way to plan courses, understand requirements, and keep track of academic progress in one place.',
+    role: 'Built the planning experience with full-stack coordination across Next.js, React, Node.js, WebSockets, and Supabase.',
+    challenges: [
+      'Turning degree requirements into something easier to visualize',
+      'Keeping updates responsive enough to feel interactive',
+      'Balancing roadmap clarity with practical feature scope'
+    ],
+    outcome: 'Created a student-focused planning tool that makes roadmap decisions and course tracking more intuitive.',
     githubUrl: 'https://github.com/Adoxcol/UniPlan_Final_1',
     liveUrl: 'https://uni-plan-final-1.vercel.app/'
   },
@@ -84,6 +112,14 @@ const projects: Project[] = [
       'Responsive design for desktop and mobile'
     ],
     imageUrl: '/images/EvergreenConstruction.png',
+    problem: 'The company needed a cleaner digital presence to communicate services, build trust, and give visitors a clear landing experience.',
+    role: 'Designed and built the landing-page experience with a focus on presentation, clarity, and responsiveness.',
+    challenges: [
+      'Keeping the site visually polished while staying straightforward',
+      'Structuring service content so it felt credible and easy to scan',
+      'Making the page work well on both desktop and mobile layouts'
+    ],
+    outcome: 'Delivered a stronger brand-facing web presence that presents the company more professionally online.',
     liveUrl: 'https://evergreen-alpha-eight.vercel.app/'
   },
   {
@@ -92,15 +128,23 @@ const projects: Project[] = [
     category: 'AI',
     techStack: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
     status: 'ARCHIVED',
-    description: 'NLP-powered resume screening and matching system',
-    longDescription: 'An intelligent recruitment tool that uses Natural Language Processing (NLP) to parse resumes and match them against job descriptions. It utilizes BERT models for semantic understanding of candidate skills and experiences.',
+    description: 'AI-assisted wellness concept focused on supportive interactions and mental health awareness.',
+    longDescription: 'A mental wellness companion concept exploring how AI-driven interfaces can support reflective check-ins, calming interactions, and a more approachable digital wellness experience. The project was built with Next.js, React, TypeScript, and TailwindCSS as a thoughtful product exploration.',
     features: [
-      'PDF and Word document parsing',
-      'Entity extraction (Skills, Education, Experience)',
-      'Semantic matching score calculation',
-      'Bias detection and mitigation algorithms'
+      'Supportive wellness-oriented user flows',
+      'Clean and approachable interface design',
+      'AI-inspired interaction patterns',
+      'Archived product exploration for future iteration'
     ],
     imageUrl: '/images/wellness.png',
+    problem: 'I wanted to explore whether an AI-assisted interface could make digital wellness experiences feel more supportive and less clinical.',
+    role: 'Built the product concept, interface direction, and core interaction flow as an AI-driven exploratory project.',
+    challenges: [
+      'Handling a sensitive subject area with the right tone',
+      'Keeping the experience calm and approachable instead of overly technical',
+      'Balancing ambition with the scope of an exploratory side project'
+    ],
+    outcome: 'Produced an archived but meaningful concept that explored how AI could support reflective and emotionally aware user flows.',
     githubUrl: 'https://github.com/Adoxcol/mentalwellness'
   },
   {
@@ -117,6 +161,14 @@ const projects: Project[] = [
       'Customizable tab sharing permissions'
     ],
     imageUrl: '/images/guido.png',
+    problem: 'Browser-based workflows often lose context quickly, especially when sharing what someone should look at or follow.',
+    role: 'Worked on an extension experience focused on workflow capture and context-sharing inside the browser.',
+    challenges: [
+      'Making tab-sharing feel lightweight instead of disruptive',
+      'Keeping captured context useful in collaborative situations',
+      'Designing permissions and sharing behavior clearly'
+    ],
+    outcome: 'Created an extension concept that helps turn browser activity into something easier to capture, share, and collaborate around.',
     githubUrl: 'https://github.com'
   }
 ];
@@ -219,51 +271,91 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-tactical-black/90 backdrop-blur-md"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-tactical-black/88 backdrop-blur-lg"
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
+        initial={{ scale: 0.98, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
+        exit={{ scale: 0.98, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-tactical-black border border-neon-lime/30 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-[0_0_30px_rgba(180,240,0,0.1)] custom-scrollbar"
+        className="bg-tactical-black border border-neon-lime/20 w-full max-w-[1500px] h-[94vh] max-h-[94vh] overflow-hidden relative shadow-[0_0_42px_rgba(180,240,0,0.08)] custom-scrollbar"
       >
+        <div className="absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-neon-lime/80 to-transparent" />
+
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 text-muted-gray hover:text-neon-lime border border-transparent hover:border-neon-lime transition-all"
+          className="absolute top-4 right-4 z-20 p-2 text-muted-gray hover:text-neon-lime border border-muted-gray/20 bg-tactical-black/70 backdrop-blur-sm hover:border-neon-lime/60 transition-all"
         >
           <X className="w-6 h-6" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid h-full grid-cols-1 xl:grid-cols-[minmax(0,1.15fr)_minmax(430px,0.85fr)]">
           {/* Image Section */}
-          <div className="relative h-64 md:h-full min-h-[300px] border-b md:border-b-0 md:border-r border-muted-gray/20">
+          <div className="relative min-h-[360px] xl:min-h-full border-b xl:border-b-0 xl:border-r border-muted-gray/20 overflow-hidden">
             <img 
               src={project.imageUrl} 
               alt={project.name}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-tactical-black to-transparent opacity-60" />
-            <div className="absolute bottom-6 left-6 z-10">
-              <span className={`text-xs px-2 py-1 font-mono border mb-2 inline-block ${project.status === 'DEPLOYED' ? 'text-neon-lime border-neon-lime' : 'text-tactical-cyan border-tactical-cyan'}`}>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(180,240,0,0.18),transparent_28%),linear-gradient(180deg,rgba(10,10,10,0.12),rgba(10,10,10,0.72))]" />
+            <div className="absolute left-6 top-6 z-10 flex flex-wrap items-center gap-3">
+              <span className="border border-muted-gray/25 bg-tactical-black/55 px-3 py-1 tactical-mono text-[11px] text-soft-white/80 backdrop-blur-sm">
+                CASE_{project.id.toString().padStart(3, '0')}
+              </span>
+              <span className={`text-xs px-2 py-1 font-mono border inline-block ${project.status === 'DEPLOYED' ? 'text-neon-lime border-neon-lime' : 'text-tactical-cyan border-tactical-cyan'} bg-tactical-black/60 backdrop-blur-sm`}>
                 {project.status}
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-soft-white mt-2">{project.name}</h2>
+              <span className="text-xs px-2 py-1 font-bold bg-tactical-black/65 text-soft-white border border-muted-gray/20 backdrop-blur-sm">
+                {project.category}
+              </span>
+            </div>
+
+            <div className="absolute bottom-0 inset-x-0 z-10 p-6 md:p-8 xl:p-10">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl md:text-5xl xl:text-6xl font-bold text-soft-white mt-2 leading-[0.95]">
+                  {project.name}
+                </h2>
+                <p className="mt-4 max-w-xl text-sm md:text-base text-soft-white/78 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs text-soft-white font-mono border border-soft-white/15 bg-tactical-black/45 px-2.5 py-1 backdrop-blur-sm"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Details Section */}
-          <div className="p-6 md:p-8 space-y-6">
+          <div className="min-h-0 overflow-y-auto p-6 md:p-8 xl:p-10 space-y-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-neon-lime font-mono text-sm">/// PROJECT_DETAILS</span>
+                <span className="text-neon-lime font-mono text-sm">/// CASE_STUDY</span>
                 <div className="h-px flex-grow bg-neon-lime/30" />
               </div>
               <p className="text-soft-white/80 leading-relaxed text-sm md:text-base">
                 {project.longDescription}
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="border border-muted-gray/20 bg-tactical-card/40 p-5">
+                <div className="tactical-label text-tactical-cyan mb-2">PROBLEM</div>
+                <p className="text-sm text-soft-white/80 leading-relaxed">{project.problem}</p>
+              </div>
+              <div className="border border-muted-gray/20 bg-tactical-card/40 p-5">
+                <div className="tactical-label text-tactical-magenta mb-2">ROLE</div>
+                <p className="text-sm text-soft-white/80 leading-relaxed">{project.role}</p>
+              </div>
             </div>
 
             {/* Features */}
@@ -281,6 +373,20 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
               </ul>
             </div>
 
+            <div>
+              <h4 className="text-tactical-cyan font-bold mb-3 flex items-center gap-2">
+                <ChevronRight className="w-4 h-4" /> CHALLENGES
+              </h4>
+              <ul className="space-y-2">
+                {project.challenges.map((challenge) => (
+                  <li key={challenge} className="flex items-start gap-3 text-sm text-muted-gray">
+                    <span className="w-1.5 h-1.5 mt-1.5 bg-tactical-magenta/60 rotate-45" />
+                    {challenge}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Tech Stack */}
             <div>
               <h4 className="text-tactical-cyan font-bold mb-3 flex items-center gap-2">
@@ -293,6 +399,11 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
                   </span>
                 ))}
               </div>
+            </div>
+
+            <div className="border-t border-muted-gray/20 pt-6">
+              <div className="tactical-label text-neon-lime mb-2">OUTCOME</div>
+              <p className="text-sm text-soft-white/80 leading-relaxed">{project.outcome}</p>
             </div>
 
             {/* Links */}
