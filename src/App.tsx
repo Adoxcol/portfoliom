@@ -1,94 +1,66 @@
-import { useState, useEffect } from 'react';
-import CustomCursor from './components/CustomCursor';
-import TacticalBackground from './components/TacticalBackground';
-import LoadingScreen from './components/LoadingScreen';
-import Navigation from './components/Navigation';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProjectArchive from './components/ProjectArchive';
-import HobbyCreations from './components/HobbyCreations';
-import MissionLog from './components/MissionLog';
-import SkillsMatrix from './components/SkillsMatrix';
-import SystemMetrics from './components/SystemMetrics';
-import TerminalContact from './components/TerminalContact';
-import TerminalCommandPalette from './components/TerminalCommandPalette';
+import { useRef, useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import CustomCursor from './components/chrome/CustomCursor';
+import LoadingScreen from './components/chrome/LoadingScreen';
+import ChainProgressNav from './components/chrome/ChainProgressNav';
+import ScrollChain from './components/chrome/ScrollChain';
+import AssociationTerminal from './components/chrome/AssociationTerminal';
+import LicenseHero from './components/sections/LicenseHero';
+import ProfileDossier from './components/sections/ProfileDossier';
+import NenAbilities from './components/sections/NenAbilities';
+import HuntBoard from './components/sections/HuntBoard';
+import SideQuests from './components/sections/SideQuests';
+import ExamPhases from './components/sections/ExamPhases';
+import HunterStats from './components/sections/HunterStats';
+import TransmissionContact from './components/sections/TransmissionContact';
 import { useTheme } from './hooks/useTheme';
+import { profile } from './data/content';
 import './index.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showCursor, setShowCursor] = useState(false);
-  const { theme, toggleTheme, setTheme } = useTheme();
-
-  useEffect(() => {
-    // Hide default cursor and show custom cursor after loading
-    const handleLoadingComplete = () => {
-      setIsLoading(false);
-      setShowCursor(true);
-      document.body.classList.add('cursor-hidden');
-    };
-
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      handleLoadingComplete();
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { theme, setTheme } = useTheme();
+  const stageRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative min-h-screen bg-tactical-black">
-      {/* Loading Screen */}
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+    <div className="relative min-h-screen bg-ink">
+      <AnimatePresence>
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
 
-      {/* Custom Cursor */}
-      {showCursor && <CustomCursor />}
-
-      {/* Navigation */}
-      {!isLoading && <Navigation />}
-
-      {/* Command Palette */}
       {!isLoading && (
-        <TerminalCommandPalette
-          theme={theme}
-          onToggleTheme={toggleTheme}
-          onSetTheme={setTheme}
-        />
+        <>
+          <CustomCursor />
+          <ChainProgressNav containerRef={stageRef} />
+          <ScrollChain containerRef={stageRef} />
+          <AssociationTerminal theme={theme} onSetTheme={setTheme} />
+        </>
       )}
 
-      {/* Tactical Background */}
-      <TacticalBackground />
+      <div ref={stageRef} className="scene-stage h-screen overflow-y-scroll">
+        <LicenseHero />
+        <ProfileDossier />
+        <NenAbilities />
+        <HuntBoard />
+        <SideQuests />
+        <ExamPhases />
+        <HunterStats />
+        <TransmissionContact />
 
-      {/* Main Content */}
-      <main className="relative z-10">
-        <HeroSection />
-        <AboutSection />
-        <ProjectArchive />
-        <HobbyCreations />
-        <MissionLog />
-        <SkillsMatrix />
-        <SystemMetrics />
-        <TerminalContact />
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-tactical-section py-8 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="tactical-mono text-sm text-muted-gray mb-4 md:mb-0">
-              © 2025 MAHMOOD TAUHIDUL - SYSTEM ARCHITECT
-            </div>
-            <div className="flex items-center gap-4 tactical-mono text-xs text-muted-gray">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-neon-lime rounded-full animate-pulse"></div>
-                <span>SYSTEM ONLINE</span>
+        <footer className="snap-scene bg-card py-8">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="doc-mono text-sm text-muted">
+                © 2026 {profile.name.toUpperCase()} — HUNTER ASSOCIATION LICENSE HOLDER
               </div>
-              <span>•</span>
-              <span>LAST UPDATED: {new Date().toLocaleDateString()}</span>
+              <div className="flex items-center gap-2 doc-mono text-xs text-muted">
+                <div className="w-2 h-2 bg-scarlet rounded-full animate-pulse" />
+                <span>LICENSE ACTIVE</span>
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }

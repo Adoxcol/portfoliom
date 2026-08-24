@@ -2,38 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tactical Interface Base Styles */
+/* Hunter Association License — base theme */
 :root {
-  --color-tactical-black: 10 10 10;
-  --color-tactical-black-rgb: 10, 10, 10;
-  --color-tactical-section: 17 17 17;
-  --color-tactical-section-rgb: 17, 17, 17;
-  --color-tactical-card: 22 22 22;
-  --color-tactical-card-rgb: 22, 22, 22;
-  --color-neon-lime: 180 240 0;
-  --color-neon-lime-rgb: 180, 240, 0;
-  --color-tactical-magenta: 255 46 136;
-  --color-tactical-magenta-rgb: 255, 46, 136;
-  --color-tactical-cyan: 0 240 255;
-  --color-tactical-cyan-rgb: 0, 240, 255;
-  --color-soft-white: 234 234 234;
-  --color-soft-white-rgb: 234, 234, 234;
-  --color-muted-gray: 102 102 102;
-  --color-muted-gray-rgb: 102, 102, 102;
-  --color-border: 51 51 51;
-  --color-border-rgb: 51, 51, 51;
-  --color-scrollbar-track: 10 10 10;
-  --color-scrollbar-track-rgb: 10, 10, 10;
-  --color-scrollbar-thumb: 51 51 51;
-  --color-scrollbar-thumb-rgb: 51, 51, 51;
-  --color-scrollbar-thumb-hover: 85 85 85;
-  --color-scrollbar-thumb-hover-rgb: 85, 85, 85;
-  --color-selection-bg: 180 240 0;
-  --color-selection-bg-rgb: 180, 240, 0;
-  --color-selection-text: 10 10 10;
-  --color-selection-text-rgb: 10, 10, 10;
-  --color-focus: 0 240 255;
-  --color-focus-rgb: 0, 240, 255;
+  --color-ink: 11 9 8;
+  --color-obsidian: 4 3 3;
+  --color-section: 18 14 12;
+  --color-card: 27 21 18;
+  --color-scarlet: 176 32 42;
+  --color-scarlet-glow: 214 46 54;
+  --color-ember: 232 58 42;
+  --color-blood: 58 10 12;
+  --color-gold: 201 162 39;
+  --color-gold-deep: 138 98 20;
+  --color-chain: 156 163 175;
+  --color-bone: 234 228 216;
+  --color-muted: 150 136 118;
+  --color-border: 66 50 43;
+  --color-scrollbar-track: 18 14 12;
+  --color-scrollbar-thumb: 66 50 43;
+  --color-scrollbar-thumb-hover: 176 32 42;
+  --color-selection-bg: 176 32 42;
+  --color-selection-text: 234 228 216;
+  --color-focus: 201 162 39;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,164 +34,129 @@ html.dark {
   color-scheme: dark;
 }
 
+/* Light theme — Kurapika's natural (un-activated) coloring: grey-blue eyes,
+   the Kurta clan's traditional white-and-blue tunic. Dark theme stays the
+   Scarlet-Eyes/Judgment-Chain palette; this is its calm counterpart. */
 html.light {
-  --color-tactical-black: 244 247 250;
-  --color-tactical-black-rgb: 244, 247, 250;
-  --color-tactical-section: 255 255 255;
-  --color-tactical-section-rgb: 255, 255, 255;
-  --color-tactical-card: 248 250 252;
-  --color-tactical-card-rgb: 248, 250, 252;
-  --color-neon-lime: 118 158 0;
-  --color-neon-lime-rgb: 118, 158, 0;
-  --color-tactical-magenta: 184 36 96;
-  --color-tactical-magenta-rgb: 184, 36, 96;
-  --color-tactical-cyan: 0 118 148;
-  --color-tactical-cyan-rgb: 0, 118, 148;
-  --color-soft-white: 15 23 33;
-  --color-soft-white-rgb: 15, 23, 33;
-  --color-muted-gray: 91 103 117;
-  --color-muted-gray-rgb: 91, 103, 117;
-  --color-border: 214 222 230;
-  --color-border-rgb: 214, 222, 230;
-  --color-scrollbar-track: 236 241 246;
-  --color-scrollbar-track-rgb: 236, 241, 246;
-  --color-scrollbar-thumb: 186 196 207;
-  --color-scrollbar-thumb-rgb: 186, 196, 207;
-  --color-scrollbar-thumb-hover: 150 162 175;
-  --color-scrollbar-thumb-hover-rgb: 150, 162, 175;
-  --color-selection-bg: 118 158 0;
-  --color-selection-bg-rgb: 118, 158, 0;
+  --color-ink: 248 250 252;
+  --color-obsidian: 15 23 42;
+  --color-section: 241 245 249;
+  --color-card: 255 255 255;
+  --color-scarlet: 30 64 175;
+  --color-scarlet-glow: 59 130 246;
+  --color-ember: 37 99 235;
+  --color-blood: 12 20 43;
+  --color-gold: 150 110 20;
+  --color-gold-deep: 110 78 16;
+  --color-chain: 100 116 139;
+  --color-bone: 15 23 42;
+  --color-muted: 71 85 105;
+  --color-border: 203 213 225;
+  --color-scrollbar-track: 241 245 249;
+  --color-scrollbar-thumb: 203 213 225;
+  --color-scrollbar-thumb-hover: 30 64 175;
+  --color-selection-bg: 37 99 235;
   --color-selection-text: 255 255 255;
-  --color-selection-text-rgb: 255, 255, 255;
-  --color-focus: 0 118 148;
-  --color-focus-rgb: 0, 118, 148;
+  --color-focus: 37 99 235;
   color-scheme: light;
 }
 
-/* Custom Tactical Utilities */
 @layer utilities {
-  /* Tactical border with no rounded corners */
-  .tactical-border {
-    border: 1px solid rgb(var(--color-border-rgb));
-    border-radius: 0;
-    box-shadow: 0 0 0 1px rgba(var(--color-border-rgb), 0.06);
+  /* Ceremonial license-document border, enriched with a faint ember/shadow gradient
+     so any bg-card / bg-ink surface reads as lit rather than flat */
+  .license-border {
+    position: relative;
+    border: 1px solid rgb(var(--color-border));
+    box-shadow: 0 0 0 1px rgb(var(--color-border) / 0.08), inset 0 1px 0 rgb(255 255 255 / 0.04);
+    background-image:
+      linear-gradient(155deg, rgb(var(--color-ember) / 0.07), transparent 45%),
+      linear-gradient(335deg, rgb(var(--color-obsidian) / 0.5), transparent 60%);
+    background-blend-mode: normal;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
-  
-  /* Neon glow effects */
-  .neon-glow-lime {
-    box-shadow: 0 0 5px rgb(var(--color-neon-lime-rgb)), 0 0 10px rgb(var(--color-neon-lime-rgb)), 0 0 15px rgb(var(--color-neon-lime-rgb));
+
+  .license-border:hover {
+    border-color: rgb(var(--color-ember) / 0.4);
   }
-  
-  .neon-glow-magenta {
-    box-shadow: 0 0 5px rgb(var(--color-tactical-magenta-rgb)), 0 0 10px rgb(var(--color-tactical-magenta-rgb)), 0 0 15px rgb(var(--color-tactical-magenta-rgb));
+
+  .scarlet-glow {
+    box-shadow: 0 0 10px rgb(var(--color-ember) / 0.7), 0 0 30px rgb(var(--color-scarlet-glow) / 0.45),
+      0 0 60px rgb(var(--color-blood) / 0.3);
   }
-  
-  .neon-glow-cyan {
-    box-shadow: 0 0 5px rgb(var(--color-tactical-cyan-rgb)), 0 0 10px rgb(var(--color-tactical-cyan-rgb)), 0 0 15px rgb(var(--color-tactical-cyan-rgb));
+
+  .gold-glow {
+    box-shadow: 0 0 10px rgb(var(--color-gold) / 0.6), 0 0 26px rgb(var(--color-gold-deep) / 0.35);
   }
-  
-  /* Scanline effect */
-  .scanline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      transparent 50%,
-      rgba(0, 240, 255, 0.03) 50%
+
+  /* Radial ember atmosphere behind a focal element */
+  .aura-field {
+    background:
+      radial-gradient(closest-side, rgb(var(--color-ember) / 0.22), transparent 70%);
+  }
+
+  /* Kurta-clan scarlet gradient headline */
+  .text-blood-gradient {
+    background-image: linear-gradient(
+      100deg,
+      rgb(var(--color-gold)) 0%,
+      rgb(var(--color-ember)) 45%,
+      rgb(var(--color-scarlet)) 75%
     );
-    background-size: 100% 4px;
-    opacity: 0.45;
-    pointer-events: none;
-    z-index: 1;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
-  
-  /* Noise texture overlay */
-  .noise-overlay::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 2;
+
+  /* Cinematic vignette depth */
+  .vignette {
+    background: radial-gradient(ellipse at center, transparent 45%, rgb(var(--color-obsidian) / 0.65) 100%);
   }
-  
-  /* Tactical text styles */
-  .tactical-heading {
-    font-family: 'Space Grotesk', monospace;
+
+  .doc-heading {
+    font-family: 'Cinzel', serif;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     font-weight: 700;
   }
-  
-  .tactical-mono {
+
+  .doc-mono {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
   }
-  
-  .tactical-label {
+
+  .doc-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     font-weight: 500;
   }
-  
-  /* Custom cursor hide */
+
   .cursor-hidden * {
     cursor: none !important;
   }
+
+  /* Snap-scroll experience */
+  .snap-scene {
+    scroll-snap-align: start;
+  }
 }
 
-/* Global styles */
 body {
-  background-color: rgb(var(--color-tactical-black-rgb));
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(var(--color-ink));
   background-image:
-    radial-gradient(circle at top left, rgba(var(--color-neon-lime-rgb), 0.07), transparent 24%),
-    radial-gradient(circle at top right, rgba(var(--color-tactical-cyan-rgb), 0.06), transparent 26%),
-    linear-gradient(180deg, rgba(var(--color-tactical-section-rgb), 0.22), transparent 42%);
-  color: rgb(var(--color-soft-white-rgb));
+    radial-gradient(circle at 15% 10%, rgb(var(--color-ember) / 0.14), transparent 32%),
+    radial-gradient(circle at 85% 15%, rgb(var(--color-gold) / 0.08), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgb(var(--color-blood) / 0.22), transparent 55%),
+    linear-gradient(180deg, rgb(var(--color-ink)), rgb(var(--color-obsidian)) 130%);
+  color: rgb(var(--color-bone));
   overflow-x: hidden;
   transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-html.light body {
-  background-image:
-    radial-gradient(circle at top left, rgba(var(--color-neon-lime-rgb), 0.06), transparent 22%),
-    radial-gradient(circle at top right, rgba(var(--color-tactical-cyan-rgb), 0.05), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgb(var(--color-tactical-black-rgb)) 68%);
-}
-
 .custom-cursor {
-  filter: drop-shadow(0 0 10px rgba(var(--color-neon-lime-rgb), 0.18));
-}
-
-html.light .custom-cursor {
-  filter: drop-shadow(0 0 12px rgba(var(--color-neon-lime-rgb), 0.22));
-}
-
-html.light .scanline::before {
-  background: linear-gradient(
-    transparent 50%,
-    rgba(var(--color-tactical-cyan-rgb), 0.025) 50%
-  );
-  opacity: 0.18;
-}
-
-html.light .noise-overlay::after {
-  opacity: 0.12;
-}
-
-html.light .tactical-border {
-  box-shadow:
-    0 18px 40px -30px rgba(15, 23, 33, 0.16),
-    0 0 0 1px rgba(var(--color-border-rgb), 0.55);
+  filter: drop-shadow(0 0 8px rgb(var(--color-scarlet-glow) / 0.4));
 }
 
 /* Custom scrollbar */
@@ -210,112 +165,40 @@ html.light .tactical-border {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(var(--color-scrollbar-track-rgb));
+  background: rgb(var(--color-scrollbar-track));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--color-scrollbar-thumb-rgb));
+  background: rgb(var(--color-scrollbar-thumb));
   border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--color-scrollbar-thumb-hover-rgb));
+  background: rgb(var(--color-scrollbar-thumb-hover));
 }
 
-/* Selection styles */
 ::selection {
-  background-color: rgb(var(--color-selection-bg-rgb));
-  color: rgb(var(--color-selection-text-rgb));
+  background-color: rgb(var(--color-selection-bg));
+  color: rgb(var(--color-selection-text));
 }
 
-/* Focus styles */
-*:focus {
-  outline: 2px solid rgb(var(--color-focus-rgb));
+*:focus-visible {
+  outline: 2px solid rgb(var(--color-focus));
   outline-offset: 2px;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Snap-scroll main stage */
+.scene-stage {
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  /* Reduce font sizes for mobile */
-  .tactical-heading {
-    font-size: 2.5rem !important;
-  }
-  
-  .tactical-mono {
-    font-size: 0.875rem;
-  }
-  
-  /* Reduce section padding */
-  section {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-  }
-  
-  /* Hide some background elements on mobile */
-  .tactical-background .corner-coordinates,
-  .tactical-background .security-level {
-    display: none;
-  }
-  
-  /* Reduce grid complexity */
-  .grid-cols-1 {
-    grid-template-columns: 1fr !important;
-  }
-  
-  /* Simplify hover effects on mobile */
-  .group:hover .group-hover\:opacity-80 {
-    opacity: 0.6 !important;
-  }
-  
-  /* Reduce animation complexity */
-  .motion-reduce\:opacity-0 {
-    opacity: 0;
-  }
-  
-  /* Terminal adjustments */
-  .tactical-terminal {
-    font-size: 0.75rem;
-  }
-  
-  /* Custom cursor hide on mobile */
-  .cursor-hidden * {
-    cursor: auto !important;
-  }
-}
-
-/* Print styles */
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-  
-  .tactical-background,
-  .custom-cursor {
-    display: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .tactical-border {
-    border-width: 2px;
-  }
-  
-  .neon-glow-lime,
-  .neon-glow-magenta,
-  .neon-glow-cyan {
-    box-shadow: none;
-  }
-}
-
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+  .scene-stage {
+    scroll-snap-type: y proximity;
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -325,30 +208,39 @@ html {
   }
 }
 
-/* Custom animations for tactical feel */
-@keyframes tactical-flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+@media (prefers-contrast: high) {
+  .license-border {
+    border-width: 2px;
+  }
+
+  .scarlet-glow,
+  .gold-glow {
+    box-shadow: none;
+  }
 }
 
-@keyframes tactical-scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
 }
 
-@keyframes tactical-glow {
-  0% { box-shadow: 0 0 5px currentColor; }
-  100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
-}
+@media (max-width: 768px) {
+  .doc-heading {
+    font-size: 2.25rem !important;
+  }
 
-.tactical-flicker {
-  animation: tactical-flicker 2s infinite;
-}
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
 
-.tactical-scan {
-  animation: tactical-scan 8s linear infinite;
-}
-
-.tactical-glow {
-  animation: tactical-glow 2s ease-in-out infinite alternate;
+  .cursor-hidden * {
+    cursor: auto !important;
+  }
 }
