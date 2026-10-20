@@ -5,23 +5,45 @@ import {
   ChevronLeft,
   ChevronRight,
   Code2,
+  FlaskConical,
   Github,
   Globe,
   Headphones,
+  Layers,
   Mail,
   Music2,
   Search,
   Settings2,
-  FlaskConical,
+  TerminalSquare,
   UserRound,
+  Zap,
 } from "lucide-react";
 import { profile, hunts, sideQuests, examPhases } from "../data/content";
 import type { AppId } from "../lib/desktop";
+import VeloSimulator from "./VeloSimulator";
 
 const shots = [
   { file: "darkmode", label: "Your library, your way" },
   { file: "playback-mode", label: "An immersive listening space" },
   { file: "equalizer", label: "Dial in your sound" },
+];
+const veloShots = [
+  {
+    file: "app",
+    label: "16-part parallel downloads with live speed graph and queue control",
+  },
+  {
+    file: "video-button",
+    label: "In-page 'Download with Velo' button with HLS stream quality picker",
+  },
+  {
+    file: "popup",
+    label: "Browser extension popup for captured media and active streams",
+  },
+  {
+    file: "batch",
+    label: "Batch page grabber with one-click filetype and pattern filtering",
+  },
 ];
 const images: Record<number, string> = {
   1: "gov",
@@ -41,6 +63,7 @@ export default function PortfolioContent({
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<number | null>(null);
   const [shot, setShot] = useState(0);
+  const [veloShot, setVeloShot] = useState(0);
   const [copyStatus, setCopyStatus] = useState("");
   useEffect(() => {
     if (!copyStatus) return;
@@ -48,14 +71,22 @@ export default function PortfolioContent({
     return () => clearTimeout(timer);
   }, [copyStatus]);
   const project = hunts.find((hunt) => hunt.id === selected);
+  const normalizedQuery = query.trim().toLowerCase();
   const results = hunts.filter((hunt) =>
     (hunt.name + " " + hunt.techStack.join(" "))
       .toLowerCase()
-      .includes(query.toLowerCase()),
+      .includes(normalizedQuery),
   );
-  const showStudio = "studio flutter music desktop riverpod dart".includes(
-    query.toLowerCase(),
-  );
+  const showVelo =
+    !normalizedQuery ||
+    "velo golang go download manager cli linux macos windows browser extension hls dash stream veloctl open source".includes(
+      normalizedQuery,
+    );
+  const showStudio =
+    !normalizedQuery ||
+    "studio flutter music desktop riverpod dart audio player open source".includes(
+      normalizedQuery,
+    );
   return (
     <div className="window-content" key={`${active}-${selected}`}>
       {active === "work" && !project && (
@@ -64,7 +95,7 @@ export default function PortfolioContent({
             <div>
               <span className="eyebrow">A FEW THINGS I'VE MADE</span>
               <h2>
-                Selected work<span> / 07</span>
+                Selected work<span> / 08</span>
               </h2>
             </div>
             <span className="badge">2025 — NOW</span>
@@ -82,40 +113,88 @@ export default function PortfolioContent({
             />
             <span>⌕</span>
           </label>
-          {showStudio && (
-            <button className="studio-feature" onClick={() => open("studio")}>
-              <div className="feature-copy">
-                <span className="eyebrow">● FEATURED PROJECT</span>
-                <div className="studio-wordmark">
-                  <Music2 size={29} />
-                  <h3>Studio</h3>
-                </div>
-                <p>
-                  A space for your music.
-                  <br />
-                  Built to feel like yours.
-                </p>
-                <div className="feature-tags">DESKTOP APP · OPEN SOURCE</div>
-                <span className="feature-link">
-                  Step inside Studio <ArrowUpRight size={17} />
-                </span>
-              </div>
-              <div className="feature-art">
-                <div className="record">
-                  <span>
-                    studio<small>SIDE A · PLAY IT YOUR WAY</small>
+          <div className="featured-stack">
+            {showVelo && (
+              <button className="velo-feature" onClick={() => open("velo")}>
+                <div className="feature-copy">
+                  <span className="eyebrow">
+                    ● NEW RELEASE · WINDOWS + LINUX &amp; MACOS CLI
+                  </span>
+                  <div className="velo-wordmark">
+                    <Zap size={29} />
+                    <h3>Velo</h3>
+                  </div>
+                  <p>
+                    Fast parallel downloads.
+                    <br />A smoother internet — on desktop and in your terminal.
+                  </p>
+                  <div className="feature-tags">
+                    GOLANG · 32× SEGMENTS · BROWSER EXTENSION · VELOCTI CLI
+                  </div>
+                  <span className="feature-link">
+                    Step inside Velo <ArrowUpRight size={17} />
                   </span>
                 </div>
-                <img
-                  src="/images/studio/darkmode.png"
-                  alt="Studio's desktop music library interface"
-                />
-              </div>
-            </button>
-          )}
+                <div className="feature-art velo-art">
+                  <div className="velo-speed-badge" aria-hidden="true">
+                    <small>16 CONNECTIONS</small>
+                    <strong>48.6 MB/s</strong>
+                    <div className="velo-mini-segs">
+                      <i style={{ width: "92%" }} />
+                      <i style={{ width: "78%" }} />
+                      <i style={{ width: "86%" }} />
+                      <i style={{ width: "64%" }} />
+                      <i style={{ width: "95%" }} />
+                      <i style={{ width: "71%" }} />
+                      <i style={{ width: "88%" }} />
+                      <i style={{ width: "80%" }} />
+                    </div>
+                  </div>
+                  <img
+                    src="/images/velo/app.png"
+                    alt="Velo's parallel download manager interface"
+                  />
+                </div>
+              </button>
+            )}
+            {showStudio && (
+              <button className="studio-feature" onClick={() => open("studio")}>
+                <div className="feature-copy">
+                  <span className="eyebrow">● FEATURED PROJECT</span>
+                  <div className="studio-wordmark">
+                    <Music2 size={29} />
+                    <h3>Studio</h3>
+                  </div>
+                  <p>
+                    A space for your music.
+                    <br />
+                    Built to feel like yours.
+                  </p>
+                  <div className="feature-tags">DESKTOP APP · OPEN SOURCE</div>
+                  <span className="feature-link">
+                    Step inside Studio <ArrowUpRight size={17} />
+                  </span>
+                </div>
+                <div className="feature-art">
+                  <div className="record">
+                    <span>
+                      studio<small>SIDE A · PLAY IT YOUR WAY</small>
+                    </span>
+                  </div>
+                  <img
+                    src="/images/studio/darkmode.png"
+                    alt="Studio's desktop music library interface"
+                  />
+                </div>
+              </button>
+            )}
+          </div>
           <div className="section-label">
             <span>THE PROJECT FILES</span>
-            <span>{results.length + (showStudio ? 1 : 0)} items ↓</span>
+            <span>
+              {results.length + (showVelo ? 1 : 0) + (showStudio ? 1 : 0)} items
+              ↓
+            </span>
           </div>
           <div className="project-grid">
             {results.map((hunt) => (
@@ -149,9 +228,10 @@ export default function PortfolioContent({
               </button>
             ))}
           </div>
-          {!results.length && !showStudio && (
+          {!results.length && !showVelo && !showStudio && (
             <p className="intro">
-              No projects match “{query}”. Try React, AI, or Studio.
+              No projects match “{query}”. Try Velo, Golang, React, AI, or
+              Studio.
             </p>
           )}
         </>
@@ -205,6 +285,149 @@ export default function PortfolioContent({
                   <Github size={16} /> Source code
                 </a>
               )}
+          </div>
+        </>
+      )}
+      {active === "velo" && (
+        <>
+          <span className="eyebrow">PERSONAL PROJECT / OPEN SOURCE</span>
+          <div className="content-heading">
+            <h2 className="studio-title">
+              <Zap size={32} /> Velo
+            </h2>
+            <span className="badge">WINDOWS DESKTOP · LINUX &amp; MACOS CLI</span>
+          </div>
+          <p className="studio-tagline">
+            Fast downloads.
+            <br />
+            <em>A smoother internet.</em>
+          </p>
+          <p className="intro">
+            A free, open-source parallel download manager I built in Go: a
+            Windows desktop app with browser integration and HLS/DASH stream
+            capture, plus a standalone <code>veloctl</code> command-line
+            downloader for Linux, macOS, and Windows (x64 &amp; ARM64).
+          </p>
+          <div className="action-row">
+            <a
+              className="primary-button"
+              href="https://velo.adoxcol.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit velo.adoxcol.com <ArrowUpRight size={16} />
+            </a>
+            <a
+              className="secondary-button"
+              href="https://github.com/Adoxcol/velo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github size={16} /> Source code
+            </a>
+            <a
+              className="secondary-button"
+              href="https://chromewebstore.google.com/detail/pcpdknogjedamkhakgfbaoieehnheelk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Chrome Web Store <ArrowUpRight size={15} />
+            </a>
+            <a
+              className="text-link"
+              href="https://github.com/Adoxcol/velo/releases/latest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Releases &amp; SHA-256 ↗
+            </a>
+          </div>
+
+          <VeloSimulator open={open} />
+
+          <div className="screenshot-viewer">
+            <img
+              src={`/images/velo/${veloShots[veloShot].file}.png`}
+              alt={`Velo: ${veloShots[veloShot].label}`}
+            />
+            <div className="screenshot-caption">
+              <span>{veloShots[veloShot].label}</span>
+              <div>
+                <button
+                  aria-label="Previous Velo screenshot"
+                  onClick={() =>
+                    setVeloShot((veloShot + veloShots.length - 1) % veloShots.length)
+                  }
+                >
+                  <ChevronLeft size={17} />
+                </button>
+                <span>
+                  {veloShot + 1} / {veloShots.length}
+                </span>
+                <button
+                  aria-label="Next Velo screenshot"
+                  onClick={() =>
+                    setVeloShot((veloShot + 1) % veloShots.length)
+                  }
+                >
+                  <ChevronRight size={17} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="studio-features">
+            {[
+              {
+                icon: Layers,
+                title: "Up to 32 parallel parts",
+                text: "Splits files across concurrent HTTP range connections. When a part finishes, its worker dynamically steals half of the slowest remaining segment.",
+              },
+              {
+                icon: Globe,
+                title: "Browser & stream grabber",
+                text: "Integrates with Chrome, Edge, Brave, and Firefox. Detects HLS (.m3u8) and DASH (.mpd) streams, offers a quality picker, and merges audio/video via ffmpeg.",
+              },
+              {
+                icon: TerminalSquare,
+                title: "Linux & macOS CLI (veloctl)",
+                text: "One-line install via curl, Homebrew, Scoop, .deb, or .rpm. Pause with Ctrl+C and run the exact same command to resume where it stopped.",
+              },
+            ].map((item) => (
+              <article key={item.title}>
+                <item.icon size={23} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="engineering-note">
+            <span className="eyebrow">UNDER THE HOOD</span>
+            <h3>
+              A custom Go download engine, Native Messaging IPC, and cross-OS
+              CLI.
+            </h3>
+            <p>
+              Built in Go with a WebView2 desktop shell, a Manifest V3 browser
+              extension that talks to <code>velo-host.exe</code> over
+              length-prefixed stdio and token-authenticated localhost IPC,
+              automatic SHA-256 verification, expired-link refresh, and a
+              zero-dependency terminal client for Linux, macOS, and Windows.
+            </p>
+            <div className="tags">
+              {[
+                "Golang",
+                "WebView2",
+                "Manifest V3",
+                "Native Messaging IPC",
+                "HLS / DASH",
+                "veloctl CLI",
+                "Linux / macOS / Windows",
+              ].map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
           </div>
         </>
       )}
@@ -337,14 +560,24 @@ export default function PortfolioContent({
             <p>
               Web platforms. Intelligent systems.
               <br />
-              <strong>A music player that feels like mine.</strong>
+              <strong>
+                Open-source desktop &amp; CLI tools (Velo and Studio) built to
+                feel right.
+              </strong>
             </p>
           </div>
           <p className="intro">
-            My work spans React and Next.js interfaces, backend services, LLM
-            integrations, and cloud infrastructure. Outside of that, I explore
-            music, creative tools, and the small ideas that turn into side
-            projects.
+            My work spans React and Next.js interfaces, Go and Node.js backend
+            services, LLM integrations, and cloud infrastructure. Outside of
+            that, I build open-source desktop software like{" "}
+            <button className="inline-link" onClick={() => open("velo")}>
+              Velo
+            </button>{" "}
+            and{" "}
+            <button className="inline-link" onClick={() => open("studio")}>
+              Studio
+            </button>
+            , alongside small experiments that start from everyday curiosity.
           </p>
           <div className="section-label">THE JOURNEY SO FAR</div>
           <div className="timeline">

@@ -225,7 +225,7 @@ export default function App() {
                     README.txt / Plain text / Read only
                   </div>
                   <p className="readme-date">
-                    README.txt / last updated September 2026
+                    README.txt / last updated October 2026
                   </p>
                   <h1>Hey, I'm Mahmood.</h1>
                   <p>
@@ -242,11 +242,14 @@ export default function App() {
                   <button onClick={() => open("work")}>
                     01. My Projects — the things I've shipped ↗
                   </button>
+                  <button onClick={() => open("velo")}>
+                    02. Velo.exe — fast parallel downloads &amp; CLI ↗
+                  </button>
                   <button onClick={() => open("studio")}>
-                    02. Studio.exe — a home for my music ↗
+                    03. Studio.exe — a home for my music ↗
                   </button>
                   <button onClick={() => open("lab")}>
-                    03. Experiments — ideas still taking shape ↗
+                    04. Experiments — ideas still taking shape ↗
                   </button>
                   <p>
                     Open a couple of windows. Drag them around. Make the desktop

@@ -4046,3 +4046,460 @@ h2 > span {
     width: 270px;
   }
 }
+
+/* Velo Featured Project & Interactive Segmented Engine Simulator */
+.featured-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.velo-feature {
+  width: 100%;
+  min-height: 235px;
+  display: flex;
+  background: #101d33;
+  text-align: left;
+  border: 2px solid;
+  border-color: #4f79b8 #09111f #09111f #4f79b8;
+  overflow: hidden;
+  position: relative;
+  color: #edf3fc;
+}
+.velo-feature .feature-copy .eyebrow {
+  color: #7eb6ff;
+  font:
+    700 10px "Courier New",
+    monospace;
+  letter-spacing: 0.3px;
+}
+.velo-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 14px 0 8px;
+  color: #4c9bff;
+}
+.velo-wordmark h3 {
+  font:
+    700 38px "Courier New",
+    monospace;
+  letter-spacing: -2px;
+  color: #ffffff;
+}
+.velo-feature .feature-copy p {
+  font:
+    14px/1.6 "Courier New",
+    monospace;
+  color: #bfd0ea;
+}
+.velo-feature .feature-tags {
+  font:
+    10px "Courier New",
+    monospace;
+  margin-top: 14px;
+  color: #7ea7df;
+}
+.velo-feature .feature-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    700 12px "Courier New",
+    monospace;
+  margin-top: 14px;
+  color: #67adff;
+}
+.velo-art {
+  background:
+    radial-gradient(ellipse at 50% 25%, #1677ff55, transparent 70%),
+    linear-gradient(160deg, #0d1728 0%, #162642 100%);
+}
+.velo-art img {
+  position: absolute;
+  width: 325px;
+  max-width: none;
+  left: 16px;
+  bottom: 18px;
+  border: 3px solid #2b4a78;
+  transform: rotate(-5deg);
+  box-shadow: 0 14px 28px #050b1499;
+  transition: transform 0.35s;
+}
+.velo-feature:hover .velo-art img {
+  transform: rotate(-2deg) translateY(-4px);
+}
+.velo-speed-badge {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  z-index: 2;
+  background: #0b1424eb;
+  border: 1px solid #355d96;
+  padding: 8px 11px;
+  font:
+    10px "Courier New",
+    monospace;
+  color: #c7d9f2;
+  box-shadow: 3px 4px 0 #050a1480;
+  min-width: 148px;
+}
+.velo-speed-badge small {
+  display: block;
+  font-size: 9px;
+  color: #7ea7df;
+  letter-spacing: 0.6px;
+}
+.velo-speed-badge strong {
+  display: block;
+  font-size: 15px;
+  color: #22c55e;
+  margin: 2px 0 6px;
+}
+.velo-mini-segs {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+}
+.velo-mini-segs i {
+  display: block;
+  height: 4px;
+  background: #22c55e;
+}
+
+/* Interactive Velo Simulator */
+.velo-sim-card {
+  margin: 24px 0 28px;
+  background: #0d1728;
+  color: #e6eef9;
+  border: 3px solid;
+  border-color: #4b6d9e #080f1b #080f1b #4b6d9e;
+  padding: 20px;
+  font:
+    12px/1.6 "Courier New",
+    monospace;
+}
+.velo-sim-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.velo-sim-header .eyebrow {
+  color: #7eb6ff;
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+.velo-sim-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    700 18px "Courier New",
+    monospace;
+  color: #ffffff;
+}
+.velo-sim-header h3 svg {
+  color: #4c9bff;
+}
+.velo-conn-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.velo-conn-pills button {
+  padding: 5px 9px;
+  font:
+    700 11px "Courier New",
+    monospace;
+  background: #16243d;
+  color: #b8cae4;
+  border: 1px solid #2c4368;
+}
+.velo-conn-pills button.active {
+  background: #1677ff;
+  color: #ffffff;
+  border-color: #7eb6ff;
+}
+.velo-preset-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.velo-preset-bar button {
+  text-align: left;
+  padding: 9px 11px;
+  background: #13213a;
+  border: 1px solid #263a5c;
+  color: #c9d7ec;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.velo-preset-bar button.active {
+  background: #182d50;
+  border-color: #4c9bff;
+  box-shadow: inset 3px 0 #1677ff;
+}
+.velo-preset-bar strong {
+  font-size: 11px;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.velo-preset-bar span {
+  font-size: 10px;
+  color: #8ca5c9;
+}
+.velo-transfer-stage {
+  background: #111c30;
+  border: 1px solid #253959;
+  padding: 15px;
+}
+.velo-transfer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.velo-file-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+}
+.velo-file-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #9cb3d4;
+}
+.velo-file-meta i {
+  font-style: normal;
+  color: #67adff;
+}
+.velo-spark-box {
+  background: #0b1322;
+  border: 1px solid #233757;
+  padding: 6px 10px;
+  min-width: 145px;
+  text-align: right;
+}
+.velo-spark-box small {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #22c55e;
+}
+.velo-spark-box svg {
+  display: block;
+  width: 135px;
+  height: 26px;
+  margin-top: 2px;
+}
+.velo-segments-grid {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 4px;
+  margin: 14px 0;
+}
+.velo-segments-grid.cols-1 {
+  grid-template-columns: 1fr;
+}
+.velo-segments-grid.cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+.velo-segments-grid.cols-32 {
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+.velo-seg-cell {
+  height: 12px;
+  background: #1c2c47;
+  border: 1px solid #2c4369;
+  overflow: hidden;
+  position: relative;
+}
+.velo-seg-cell i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #1677ff, #4c9bff);
+  transition: width 0.2s linear;
+}
+.velo-seg-cell.done i {
+  background: #22c55e;
+}
+.velo-seg-cell.stolen {
+  border-color: #facc15;
+}
+.velo-sim-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.velo-sim-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  font:
+    700 11px "Courier New",
+    monospace;
+  background: #1b2c4a;
+  color: #e2ecf9;
+  border: 2px solid;
+  border-color: #476899 #0a1220 #0a1220 #476899;
+}
+.velo-sim-btn.primary {
+  background: #1677ff;
+  color: #ffffff;
+  border-color: #80b8ff #0b3c8a #0b3c8a #80b8ff;
+}
+.velo-sim-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.velo-verified-pill {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: #133629;
+  border: 1px solid #22c55e;
+  color: #86efac;
+  font-weight: 700;
+  font-size: 11px;
+}
+.velo-sim-log {
+  margin-top: 12px !important;
+  padding-top: 10px;
+  border-top: 1px dashed #294066;
+  font-size: 11px;
+  color: #b7cae6;
+}
+.velo-sim-log span {
+  color: #67adff;
+  font-weight: 700;
+}
+.velo-cli-workbench {
+  margin-top: 14px;
+  background: #09111f;
+  border: 1px solid #253959;
+  padding: 13px 15px;
+}
+.velo-cli-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.velo-cli-top > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #cfe0f7;
+  font-size: 12px;
+}
+.velo-cli-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.velo-cli-tabs button {
+  padding: 4px 8px;
+  font:
+    10px "Courier New",
+    monospace;
+  background: #13213a;
+  color: #9cb3d4;
+  border: 1px solid #263a5c;
+}
+.velo-cli-tabs button.active {
+  background: #1e3760;
+  color: #ffffff;
+  border-color: #4c9bff;
+}
+.velo-cli-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #050a13;
+  border: 1px solid #1e3252;
+  padding: 9px 12px;
+}
+.velo-cli-code code {
+  font:
+    12px "Courier New",
+    monospace;
+  color: #86efac;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.velo-cli-code button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  background: #162642;
+  border: 1px solid #355485;
+  color: #dce8fa;
+  font:
+    11px "Courier New",
+    monospace;
+  flex-shrink: 0;
+}
+.velo-cli-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #8ca5c9;
+}
+.velo-cli-foot .inline-link {
+  color: #67adff;
+  text-decoration: underline;
+}
+
+@container (max-width: 590px) {
+  .managed-content .velo-feature {
+    min-height: 255px;
+  }
+  .managed-content .velo-art img {
+    width: 240px;
+  }
+  .velo-preset-bar {
+    grid-template-columns: 1fr;
+  }
+  .velo-segments-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .managed-content .velo-feature {
+    min-height: 260px;
+  }
+  .managed-content .velo-wordmark h3 {
+    font-size: 30px;
+  }
+  .managed-content .velo-art img {
+    width: 230px;
+    left: -12px;
+    bottom: 24px;
+  }
+  .velo-preset-bar {
+    grid-template-columns: 1fr;
+  }
+}

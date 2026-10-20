@@ -5,7 +5,7 @@ export default function Terminal({ open }: { open: (id: AppId) => void }) {
   const [lines, setLines] = useState([
     {
       command: "",
-      text: "MAHMOOD COMMAND PROMPT [Version 98.2]\nA little curiosity goes a long way. Type help to begin.",
+      text: "MAHMOOD COMMAND PROMPT [Version 98.2]\nA little curiosity goes a long way. Type help or veloctl to begin.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -96,7 +96,15 @@ export default function Terminal({ open }: { open: (id: AppId) => void }) {
       </form>
       <div ref={end} />
       <p className="terminal-hint">
-        Try <button onClick={() => setInput("open studio")}>open studio</button>{" "}
+        Try <button onClick={() => setInput("open velo")}>open velo</button>,{" "}
+        <button
+          onClick={() =>
+            setInput("veloctl get https://velo.adoxcol.com/velo.zip")
+          }
+        >
+          veloctl get
+        </button>
+        , <button onClick={() => setInput("open studio")}>open studio</button>,{" "}
         or <button onClick={() => setInput("help")}>help</button>. No files or
         system commands are executed.
       </p>

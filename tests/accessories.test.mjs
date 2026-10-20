@@ -10,6 +10,14 @@ import {
 } from "../src/lib/minesweeper.ts";
 const random = () => 0.41;
 test("terminal opens registered apps and supports safe navigation aliases", () => {
+  assert.equal(runCommand("open velo").open, "velo");
+  assert.equal(runCommand("open velo.exe").open, "velo");
+  assert.equal(runCommand("veloctl open").open, "velo");
+  assert.match(runCommand("veloctl get https://velo.adoxcol.com/velo.zip").text, /16 parallel connections/);
+  assert.match(runCommand("veloctl list").text, /ubuntu-24\.04-desktop-amd64\.iso/);
+  assert.match(runCommand("veloctl install").text, /velo\.adoxcol\.com\/install\.sh/);
+  assert.equal(completeCommand("vel"), "veloctl");
+  assert.equal(completeCommand("open v"), "open velo");
   assert.equal(runCommand("open studio").open, "studio");
   assert.equal(runCommand("OPEN Listening Room").open, "listening");
   assert.equal(runCommand("open minesweeper").open, "minesweeper");

@@ -62,6 +62,24 @@ export default function PixelIcon({
           )}
         </>
       )}
+      {kind === "velo" && (
+        <>
+          <path d="M4 5h24v24H4z" fill="#13213a" />
+          <path d="M5 4h22v24H5z" fill="#dce6f5" />
+          <path d="M6 5h20v4H6z" fill="#1677ff" />
+          <path d="M7 6h2v2H7zM23 6h2v2h-2z" fill="#eef5ff" />
+          <path d="M7 10h18v15H7z" fill="#0d1728" />
+          <path
+            d="M16 11h4v2h-2v2h-2v2h5v2h-2v2h-2v2h-2v-3h2v-2h-4v-2h2v-2h1z"
+            fill="#4c9bff"
+          />
+          <path d="M16 11h3v2h-2v2h-1v2h3v1h-4v-3h1z" fill="#eef5ff" />
+          <path
+            d="M8 23h3v1H8zM12 23h3v1h-3zM16 23h4v1h-4zM21 23h3v1h-3z"
+            fill="#22c55e"
+          />
+        </>
+      )}
       {(kind === "studio" || kind === "listening") && (
         <>
           <path d="M4 5h24v24H4z" fill="#293d3b" />

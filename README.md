@@ -7,18 +7,18 @@ A personal portfolio inside a 1990s CRT desktop. Built with React, TypeScript, V
 - Independent app windows: open together, focus, move by their title bars, resize from the lower-right corner, maximize, minimize, and close.
 - Each running app has a taskbar button. Clicking its active button minimizes it; clicking another restores and focuses that app. Show Desktop minimizes every window.
 - On mobile, one focused app fills the display; use the scrollable taskbar to switch. Other apps retain their content and state.
-- Original pixel-art desktop icons for My Projects, Studio.exe, My Computer, Experiments, Contact.txt, README.txt, and Display Settings.
+- Original pixel-art desktop icons for My Projects, Velo.exe, Studio.exe, My Computer, Experiments, Contact.txt, README.txt, and Display Settings.
 - Right-click the desktop or use the always-visible Display Properties button to customize four wallpapers, three title-bar accents, dark app interiors, and CRT intensity.
 - Preferences persist in this browser's local storage. If storage is unavailable, settings still work for the current visit.
 - Brief skippable startup screen, monitor power controls, and reduced-motion support.
 
 ## Portfolio content
 
-My Projects provides searchable projects and case studies. Studio.exe showcases the real desktop music player with a screenshot gallery, technical details, website, source, and downloads. My Computer shows the developer profile and professional timeline. Experiments contains personal projects, Contact.txt provides email/social links, and README.txt introduces the person behind the portfolio.
+My Projects provides searchable projects and case studies. Velo.exe showcases the open-source parallel download manager and cross-platform `veloctl` CLI with an interactive 16/32-connection engine simulator, screenshot gallery, technical details, and links. Studio.exe showcases the real desktop music player with a screenshot gallery, technical details, website, source, and downloads. My Computer shows the developer profile and professional timeline. Experiments contains personal projects, Contact.txt provides email/social links, and README.txt introduces the person behind the portfolio.
 
 Studio remains a showcase of the native app, with a separate Listening Room browser demo. The demo includes three original synthesized 32-second tracks, play/pause, seeking, volume, repeat, track selection, a live spectrum, and reduced-motion support. It never autoplays on first open. Closing its window stops the audio.
 
-Command.com supports help, whoami, projects, ls, open, cat readme.txt, date, and clear, plus command history and completion. It is a portfolio command interface and never executes system commands.
+Command.com supports help, whoami, projects, veloctl, ls, open, cat readme.txt, date, and clear, plus command history and completion. It is a portfolio command interface and never executes system commands.
 
 Minesweeper.exe includes a 9×9 board with 10 mines, a safe first reveal, flood fill, flags, chording, timer, win/loss handling, saved best time, and keyboard/touch controls.
 

@@ -1,5 +1,6 @@
 export type AppId =
   | "work"
+  | "velo"
   | "studio"
   | "about"
   | "lab"
@@ -11,6 +12,7 @@ export type AppId =
   | "minesweeper";
 export const apps: { id: AppId; name: string; file: string }[] = [
   { id: "work", name: "My Projects", file: "My Projects" },
+  { id: "velo", name: "Velo", file: "Velo.exe" },
   { id: "studio", name: "Studio", file: "Studio.exe" },
   { id: "about", name: "About Mahmood", file: "My Computer" },
   { id: "lab", name: "The Lab", file: "Experiments" },
