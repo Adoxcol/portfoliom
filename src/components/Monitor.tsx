@@ -17,6 +17,9 @@ export default function Monitor({
 }) {
   const [booting, setBooting] = useState(() => {
     try {
+      // Search engine crawlers should land straight on the content.
+      if (/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent))
+        return false;
       return !sessionStorage.getItem("mahmood-booted");
     } catch {
       return true;

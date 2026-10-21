@@ -123,6 +123,10 @@ export default function App() {
         }}
       >
         <header className="menu-bar">
+          <h1 className="sr-only">
+            Mahmood Tauhidul — Full-Stack AI Developer in Dhaka, creator of
+            Velo and Studio
+          </h1>
           <button
             className="brand"
             aria-label="Open README"
