@@ -4503,3 +4503,66 @@ h2 > span {
     grid-template-columns: 1fr;
   }
 }
+
+/* Now Playing: CRT Spotify screen */
+.spotify-screen { display: flex; flex-direction: column; gap: 12px; }
+.spot-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.spot-tabs button { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; letter-spacing: 0.04em; padding: 5px 12px; border: 2px outset #e3e1cc; background: #d8d6bf; color: #273b35; cursor: pointer; transition: transform 0.1s; }
+.spot-tabs button:hover { transform: translateY(-1px); }
+.spot-tabs button kbd { font: inherit; font-size: 10px; padding: 0 4px; background: #273b35; color: #d8d6bf; }
+.spot-tabs button.active { border-style: inset; background: #1c3a2a; color: #7dff9f; }
+.spot-tabs button.active kbd { background: #7dff9f; color: #1c3a2a; }
+.spot-bezel { padding: 10px; background: linear-gradient(145deg, #cfd0b9, #a9ae98); border: 2px outset #e3e1cc; border-radius: 18px; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18); }
+.spot-header { display: flex; justify-content: space-between; gap: 8px; padding: 2px 10px 8px; font-size: 11px; letter-spacing: 0.14em; color: #3a4a40; }
+.spot-header span { display: inline-flex; align-items: center; gap: 7px; }
+.spot-led { width: 8px; height: 8px; border-radius: 50%; background: #5a3b3b; box-shadow: inset 0 0 2px #000; }
+.spot-led.on { background: #e0b341; }
+.spot-led.live { background: #55ff7e; box-shadow: 0 0 8px #55ff7e; animation: spot-pulse 1.6s ease-in-out infinite; }
+.spot-crt { position: relative; min-height: 290px; padding: 22px 26px; background: radial-gradient(ellipse at center, #0c2616 0%, #04100a 75%); color: #6cf58f; border: 3px inset #6d7565; border-radius: 22px / 26px; font-family: "Courier New", monospace; text-shadow: 0 0 7px rgba(108, 245, 143, 0.55); overflow: auto; box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.85); }
+.spot-crt::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px); }
+.spot-crt a { color: inherit; text-decoration: none; }
+.spot-crt a:hover strong { text-decoration: underline; }
+.spot-center { display: grid; place-content: center; min-height: 240px; text-align: center; }
+.spot-title { margin: 0; font-size: 30px; letter-spacing: 0.25em; color: #9dffb4; }
+.spot-sub { margin: 10px 0 0; font-size: 13px; opacity: 0.75; }
+.spot-blink { animation: spot-flicker 2s steps(2) infinite; }
+.spot-cursor { animation: spot-flicker 1s steps(2) infinite; }
+.spot-now { display: flex; align-items: center; gap: 28px; min-height: 240px; }
+.spot-disc { flex: none; position: relative; width: 150px; height: 150px; border-radius: 50%; padding: 12px; background: repeating-radial-gradient(circle, #0a1a10 0 2px, #12301e 2px 4px); border: 2px solid #2f7a48; box-shadow: 0 0 22px rgba(108, 245, 143, 0.2); }
+.spot-disc.spin { animation: spot-spin 6s linear infinite; }
+.spot-cover { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: grid; place-content: center; background: #123a22; font-size: 42px; color: #6cf58f; }
+.spot-cover img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) sepia(1) hue-rotate(70deg) saturate(2.4) contrast(1.1); }
+.spot-meta { min-width: 0; flex: 1; }
+.spot-kicker { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.22em; opacity: 0.8; }
+.spot-meta h2 { margin: 0 0 6px; font-size: 26px; line-height: 1.15; color: #b8ffc9; overflow-wrap: anywhere; }
+.spot-artist { margin: 0; font-size: 16px; }
+.spot-album { margin: 4px 0 0; font-size: 13px; opacity: 0.6; }
+.spot-eq { display: flex; align-items: flex-end; gap: 3px; height: 28px; margin: 16px 0 10px; }
+.spot-eq i { width: 100%; max-width: 12px; height: 18%; background: #6cf58f; opacity: 0.45; }
+.spot-eq.live i { animation: spot-bar 0.9s ease-in-out infinite alternate; opacity: 0.9; }
+.spot-progress { height: 8px; border: 1px solid #3f9f5d; padding: 1px; }
+.spot-progress i { display: block; height: 100%; background: #6cf58f; box-shadow: 0 0 8px #6cf58f; transition: width 1s linear; }
+.spot-times { display: flex; justify-content: space-between; margin: 5px 0 0; font-size: 12px; opacity: 0.7; }
+.spot-list { list-style: none; margin: 0; padding: 0; }
+.spot-list li { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; padding: 9px 8px; border-bottom: 1px dashed rgba(108, 245, 143, 0.22); transition: background 0.15s; }
+.spot-list li:hover { background: rgba(108, 245, 143, 0.09); }
+.spot-rank { opacity: 0.5; font-size: 13px; }
+.spot-list strong { display: block; font-size: 15px; font-weight: 400; color: #b8ffc9; }
+.spot-list small { display: block; margin-top: 2px; font-size: 12px; opacity: 0.6; }
+.spot-list em { font-style: normal; font-size: 12px; opacity: 0.6; }
+.spot-empty { margin: 40px 0; text-align: center; opacity: 0.7; }
+.spot-foot { margin: 0; text-align: center; font-size: 11px; letter-spacing: 0.04em; opacity: 0.65; }
+@keyframes spot-spin { to { transform: rotate(360deg); } }
+@keyframes spot-bar { from { height: 12%; } to { height: 100%; } }
+@keyframes spot-pulse { 50% { opacity: 0.45; } }
+@keyframes spot-flicker { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .spot-disc.spin, .spot-eq.live i, .spot-led.live, .spot-blink, .spot-cursor { animation: none; }
+  .spot-progress i { transition: none; }
+}
+@media (max-width: 640px) {
+  .spot-now { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .spot-disc { width: 110px; height: 110px; }
+  .spot-header span:last-child { display: none; }
+  .spot-crt { padding: 16px; }
+}

@@ -1,16 +1,13 @@
-// Real professional content, reframed in Hunter Association terms.
+// Portfolio content.
 // Edit here — components are presentational and read from this file.
 
 export const profile = {
   name: 'Mahmood Tauhidul',
-  title: 'Full Stack AI Developer',
-  company: 'RemoteIntegrity',
+  title: 'Full-Stack AI Developer',
+  company: 'Guided Doing',
   location: 'Dhaka, BD',
-  licenseNumber: 'HA-2025-0016',
-  status: 'ACTIVE',
   specializations: ['Full Stack', 'AI Systems', 'SQA'],
   yearsActive: '1+',
-  huntsCleared: 16,
   bio: [
     'Full-stack engineer specializing in scalable web platforms and headless CMS architectures. Currently working at RemoteIntegrity and building high-performance applications using Next.js, React, TypeScript, and Golang with a focus on maintainable systems, strong type safety, and modern full-stack development practices.',
     'Expertise in AI and computer vision systems, including CNN-based classification models, real-time inference pipelines, and data-driven applications. Developing intelligent systems that combine machine learning, automation, and real-time processing to solve complex problems.',
@@ -30,31 +27,6 @@ export const profile = {
     email: 'mahfuzurrrahmannn@gmail.com',
   },
 };
-
-export interface NenAbility {
-  name: string;
-  mastery: number;
-  category: 'AI' | 'DevOps' | 'Backend';
-}
-
-export const nenAbilities: NenAbility[] = [
-  { name: 'LLM Integration', mastery: 95, category: 'AI' },
-  { name: 'RAG Systems', mastery: 90, category: 'AI' },
-  { name: 'Prompt Engineering', mastery: 85, category: 'AI' },
-  { name: 'Embeddings', mastery: 88, category: 'AI' },
-  { name: 'Vector Databases', mastery: 82, category: 'AI' },
-  { name: 'Docker', mastery: 92, category: 'DevOps' },
-  { name: 'AWS', mastery: 90, category: 'DevOps' },
-  { name: 'Firebase', mastery: 85, category: 'DevOps' },
-  { name: 'CI/CD', mastery: 88, category: 'DevOps' },
-  { name: 'Version Control', mastery: 80, category: 'DevOps' },
-  { name: 'Node.js', mastery: 95, category: 'Backend' },
-  { name: 'Golang', mastery: 84, category: 'Backend' },
-  { name: 'C#', mastery: 88, category: 'Backend' },
-  { name: 'Python', mastery: 85, category: 'Backend' },
-  { name: 'REST APIs', mastery: 92, category: 'Backend' },
-  { name: 'Microservices', mastery: 87, category: 'Backend' },
-];
 
 export interface Hunt {
   id: number;
@@ -117,14 +89,14 @@ export const hunts: Hunt[] = [
   },
   {
     id: 3,
-    name: 'DegreePlan',
+    name: 'UniPlan',
     category: 'FULL-STACK',
     rank: 'A-Rank',
     status: 'CLEARED',
     techStack: ['Node.js', 'Next.js', 'React', 'WebSocket', 'Supabase'],
     summary: 'Academic planning platform for mapping courses, tracking progress, and organizing degree requirements.',
     longSummary:
-      'DegreePlan is a student-focused planning tool that helps organize academic progress through a clearer view of courses, requirements, and roadmap decisions. Built with Next.js, React, Node.js, WebSockets, and Supabase, it supports a responsive planning experience with real-time interactions.',
+      'UniPlan (2024, academic full-stack project) is a student-focused planning tool that helps organize academic progress through a clearer view of courses, requirements, and roadmap decisions. Built with Next.js, React, Node.js, WebSockets, and Supabase, it supports a responsive planning experience with real-time interactions.',
     objective: 'Students needed a simpler way to plan courses, understand requirements, and keep track of academic progress in one place.',
     role: 'Built the planning experience with full-stack coordination across Next.js, React, Node.js, WebSockets, and Supabase.',
     obstacles: [
@@ -182,25 +154,24 @@ export const hunts: Hunt[] = [
     category: 'EXTENSION',
     rank: 'C-Rank',
     status: 'CLEARED',
-    techStack: ['JavaScript', 'Firebase', 'Firebase Functions', 'Gitlab'],
-    summary: 'Workflow capture extension for major browsers.',
-    longSummary: 'A workflow capture extension for major browsers that allows users to capture and share their browser tabs with others.',
+    techStack: ['JavaScript', 'C++', 'Swift', 'Firebase Functions', 'GCP'],
+    summary: 'Workflow capture browser extension built at Guided Doing, with Windows and macOS companion apps.',
+    longSummary: 'A workflow capture extension for major browsers that lets users capture and share their browser tabs with others. Built at Guided Doing together with Windows/macOS companion desktop applications using C++ and Swift integrations, backed by Firebase Cloud Functions and GCP-based CI/CD.',
     objective: 'Browser-based workflows often lose context quickly, especially when sharing what someone should look at or follow.',
-    role: 'Worked on an extension experience focused on workflow capture and context-sharing inside the browser.',
+    role: 'Software Engineer at Guided Doing: owned the project from requirements and architecture through implementation, testing, deployment and maintenance.',
     obstacles: [
       'Making tab-sharing feel lightweight instead of disruptive',
       'Keeping captured context useful in collaborative situations',
       'Designing permissions and sharing behavior clearly',
     ],
-    reward: 'Created an extension concept that helps turn browser activity into something easier to capture, share, and collaborate around.',
-    githubUrl: 'https://github.com',
+    reward: 'Delivered an extension that turns browser activity into something easier to capture, share, and collaborate around.',
   },
 ];
 
 export interface SideQuest {
   id: number;
   title: string;
-  status: 'ACTIVE' | 'R&D' | 'ITERATING';
+  status: 'ACTIVE' | 'R&D' | 'ITERATING' | 'ACADEMIC';
   classification: string;
   summary: string;
   motive: string;
@@ -229,17 +200,17 @@ export const sideQuests: SideQuest[] = [
   {
     id: 3,
     title: 'SizeLens',
-    status: 'R&D',
+    status: 'ACADEMIC',
     classification: 'FIT_VISION',
-    summary: 'A measurement helper that estimates torso sizing and related clothing fit data to guide T-shirt size selection more accurately.',
+    summary: 'A 2023 academic microprocessor project: an ESP32-CAM prototype using YOLOv3 and OpenCV for camera calibration, perspective correction and physical measurement (about 2 mm reported accuracy), with a Flask interface for calibration and review.',
     motive: 'This came from the idea that sizing should feel more measurable and less like trial-and-error, especially for fast personal fit checks.',
-    tags: ['Computer Vision', 'Sizing', 'Torso Measurement', 'Fit Tech'],
+    tags: ['ESP32-CAM', 'YOLOv3', 'OpenCV', 'Flask'],
   },
   {
     id: 4,
     title: 'Velour',
     status: 'ACTIVE',
-    classification: 'AI_CREATIVE_TOOLS',
+      classification: 'AI_CREATIVE_TOOLS',
     summary: 'A poem formatter and background generator that uses ComfyUI and local models to analyze emotional tone and create matching poem visuals.',
     motive: 'I wanted poems to feel more alive visually, with formatting, emotional analysis, and generated backgrounds that reflect the feeling of the writing.',
     tags: ['ComfyUI', 'Local Models', 'Poetry', 'Background Generation'],
@@ -259,55 +230,58 @@ export interface ExamPhase {
 export const examPhases: ExamPhase[] = [
   {
     code: 'PHASE_01',
-    period: '2025 // FEB – MAY',
-    title: 'Software Engineering Intern',
-    organization: 'BinduLogic LLC',
+    period: '2025 // MAR – SEP',
+    title: 'Software Engineer Intern',
+    organization: 'BinduLogic Limited',
     status: 'LAUNCHED',
-    summary: 'Entered the industry through an internship focused on learning delivery rhythm, working across real product requirements, and turning theory into shipped work.',
-    impact: [
-      'Worked inside a live software team environment',
-      'Built confidence with practical development workflows',
-      'Moved from learning mode into production contribution',
-    ],
+    summary: 'Contributed to frontend and backend development with TypeScript, JavaScript, React, Next.js and Node.js, taking part in code reviews and technical discussions.',
+    impact: [],
   },
   {
     code: 'PHASE_02',
-    period: '2025 – 2026 // MAY – MAR',
-    title: 'Junior Software Developer',
-    organization: 'BinduLogic LLC',
+    period: '2025 // SEP – 2026 MAR',
+    title: 'Full Stack Developer',
+    organization: 'BinduLogic Limited',
     status: 'PROMOTED',
-    summary: 'Transitioned from intern to junior developer after the internship period, taking on more ownership and contributing with stronger delivery expectations.',
-    impact: [
-      'Expanded responsibility beyond internship scope',
-      'Worked more independently on implementation tasks',
-      'Built momentum as a full-time engineering contributor',
-    ],
+    summary: 'Built hospital portals and healthcare platforms with Next.js, React, TypeScript, Payload CMS and PostgreSQL, including English/Bengali localization, live preview and cross-collection search. Integrated AWS S3/CloudFront and supported migrations, role-based access and accessibility.',
+    impact: [],
   },
   {
     code: 'PHASE_03',
-    period: 'Since 2026-03-27',
-    title: 'Full Stack LLM Developer',
-    organization: 'Remote Integrity',
+    period: 'Since 2026 // MAR',
+    title: 'Software Engineer',
+    organization: 'Guided Doing (Remote, Germany)',
     status: 'ACTIVE',
-    summary: 'Joined Remote Integrity to work at the intersection of full-stack engineering and LLM-powered systems, building products where AI capabilities connect directly to real workflows.',
-    impact: [
-      'Shifted into AI-driven product delivery',
-      'Worked on full-stack systems with LLM integration',
-      'Focused on higher-leverage automation and intelligent workflows',
-    ],
+    summary: 'Own projects from requirements to maintenance: a workflow-capture browser extension with Windows/macOS companion apps (C++ and Swift), and a multi-academy learning management system with a Go backend, React frontend and AI integrations. Manage GCP, CI/CD and multi-environment deployments.',
+    impact: [],
   },
 ];
 
-export const hunterStats = {
-  huntsCleared: 16,
-  systemsAutomated: 11,
-  apisIntegrated: 50,
-  aiModelsIntegrated: 14,
-  uptime: '99.9%',
-  responseTime: '<50ms',
-  errorRate: '0.01%',
-  throughput: '10K/s',
-  overallMastery: Math.round(nenAbilities.reduce((acc, a) => acc + a.mastery, 0) / nenAbilities.length),
+export const education = {
+  degree: 'B.Sc. in Computer Science & Engineering',
+  school: 'Independent University, Bangladesh',
+  period: '2020 – 2025',
+  note: 'Minor in Marketing',
+};
+
+export const researchManuscripts = {
+  note: 'Submitted for publication; acceptance and publication are not claimed.',
+  titles: [
+    'IoT-Based Body Size Measurement System',
+    'Deep Learning for Fabric Classification',
+    'Textile Fabric Dataset for Machine Learning',
+    'GSM Prediction Using Convolutional Neural Networks',
+  ],
+};
+
+export const openSource = {
+  contributions: [
+    'GraphBit (Rust async testing/CI)',
+    'Infinitibit Document Parser (Python)',
+    'OpenNotebook (testing/docs)',
+    'OpenCut (testing/docs)',
+  ],
+  training: ['CS50: Introduction to Computer Science (Harvard)', 'Networking Basics (Cisco Networking Academy)'],
 };
 
 export const contact = {

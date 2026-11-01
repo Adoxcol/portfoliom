@@ -94,6 +94,15 @@ export default function PixelIcon({
           />
         </>
       )}
+      {kind === "spotify" && (
+        <>
+          <path d="M4 5h24v20H4z" fill="#1c2a24" />
+          <path d="M5 4h22v19H5z" fill="#c9d1bd" />
+          <path d="M7 6h18v14H7z" fill="#0f2418" />
+          <path d="M9 9h14v2H9zM11 13h10v2H11zM13 17h6v2h-6z" fill="#55e07a" />
+          <path d="M10 25h12v2H10zM8 27h16v2H8z" fill="#8f9a88" />
+        </>
+      )}
       {kind === "about" && (
         <>
           <path d="M4 3h24v21H4zM12 23h8v4h6v3H6v-3h6z" fill="#4f5147" />

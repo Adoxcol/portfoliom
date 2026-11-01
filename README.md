@@ -55,3 +55,7 @@ Window geometry, taskbar transitions, and saved-preference validation are tested
 ## Original demo audio
 
 The WAV files in public/audio contain original procedural compositions with no samples. Regenerate them with node scripts/generate-demo-audio.mjs. Audio file integrity and non-silent PCM data are included in the test suite.
+
+## Now Playing (Spotify)
+
+Now Playing.exe reads from the serverless function in api/spotify.ts (Vercel). Create a Spotify app, run node scripts/spotify-auth.mjs once, then set SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN (and optionally SPOTIFY_PLAYLIST_ID) in Vercel. Without them the window shows NO SIGNAL. Local npm run dev does not serve /api; use vercel dev to test.

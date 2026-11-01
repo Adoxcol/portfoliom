@@ -9,6 +9,7 @@ export type AppId =
   | "settings"
   | "terminal"
   | "listening"
+  | "spotify"
   | "minesweeper";
 export const apps: { id: AppId; name: string; file: string }[] = [
   { id: "work", name: "My Projects", file: "My Projects" },
@@ -21,6 +22,7 @@ export const apps: { id: AppId; name: string; file: string }[] = [
   { id: "settings", name: "Display Properties", file: "Display Settings" },
   { id: "terminal", name: "Terminal", file: "Command.com" },
   { id: "listening", name: "Listening Room", file: "Listening Room" },
+  { id: "spotify", name: "Now Playing", file: "Now Playing.exe" },
   { id: "minesweeper", name: "Minesweeper", file: "Minesweeper.exe" },
 ];
 export interface Bounds {

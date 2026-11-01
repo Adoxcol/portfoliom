@@ -18,7 +18,15 @@ import {
   UserRound,
   Zap,
 } from "lucide-react";
-import { profile, hunts, sideQuests, examPhases } from "../data/content";
+import {
+  profile,
+  hunts,
+  sideQuests,
+  examPhases,
+  education,
+  researchManuscripts,
+  openSource,
+} from "../data/content";
 import type { AppId } from "../lib/desktop";
 import VeloSimulator from "./VeloSimulator";
 
@@ -590,6 +598,30 @@ export default function PortfolioContent({
               </article>
             ))}
           </div>
+          <div className="section-label">EDUCATION</div>
+          <div className="timeline">
+            <article>
+              <span className="eyebrow">{education.period}</span>
+              <h3>{education.degree}</h3>
+              <strong>{education.school}</strong>
+              <p>{education.note}</p>
+            </article>
+          </div>
+          <div className="section-label">RESEARCH (SUBMITTED)</div>
+          <p className="intro">{researchManuscripts.note}</p>
+          <ul>
+            {researchManuscripts.titles.map((title) => (
+              <li key={title}>{title}</li>
+            ))}
+          </ul>
+          <div className="section-label">OPEN SOURCE &amp; TRAINING</div>
+          <ul>
+            {[...openSource.contributions, ...openSource.training].map(
+              (item) => (
+                <li key={item}>{item}</li>
+              ),
+            )}
+          </ul>
           <div className="tags">
             {[
               ...profile.stack.frontend,
@@ -655,6 +687,14 @@ export default function PortfolioContent({
               href={`mailto:${profile.social.email}`}
             >
               <Mail size={17} /> Write an email
+            </a>
+            <a
+              className="secondary-button"
+              href="/Mahmood_Tauhidul_CV.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Download CV (PDF)
             </a>
             <button
               className="secondary-button"

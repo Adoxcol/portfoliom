@@ -15,6 +15,7 @@ import {
 } from "./lib/desktop";
 import ListeningRoom from "./components/ListeningRoom";
 import Minesweeper from "./components/Minesweeper";
+import SpotifyScreen from "./components/SpotifyScreen";
 import Terminal from "./components/Terminal";
 import Monitor from "./components/Monitor";
 import PixelIcon from "./components/PixelIcon";
@@ -219,6 +220,8 @@ export default function App() {
             >
               {win.id === "minesweeper" ? (
                 <Minesweeper />
+              ) : win.id === "spotify" ? (
+                <SpotifyScreen />
               ) : win.id === "listening" ? (
                 <ListeningRoom />
               ) : win.id === "terminal" ? (
@@ -255,6 +258,13 @@ export default function App() {
                   <button onClick={() => open("lab")}>
                     04. Experiments — ideas still taking shape ↗
                   </button>
+                  <a
+                    href="/Mahmood_Tauhidul_CV.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    05. Resume (PDF) — the short version ↗
+                  </a>
                   <p>
                     Open a couple of windows. Drag them around. Make the desktop
                     yours. On a phone, use the taskbar to switch between apps.
@@ -321,6 +331,9 @@ export default function App() {
               ))}
               <hr />
               <button onClick={showDesktop}>▤ Show desktop</button>
+              <a href="/Mahmood_Tauhidul_CV.pdf" target="_blank" rel="noreferrer">
+                Resume (PDF) ↗
+              </a>
               <a href={profile.social.github} target="_blank" rel="noreferrer">
                 GitHub ↗
               </a>

@@ -10,9 +10,7 @@ export default defineConfig(({ command }) => ({
       output: {
         manualChunks: {
           react: ['react', 'react-dom'],
-          motion: ['framer-motion'],
           icons: ['lucide-react'],
-          utils: ['clsx', 'tailwind-merge', 'zustand', 'react-router-dom'],
         },
       },
     },
